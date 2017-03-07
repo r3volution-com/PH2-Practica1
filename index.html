@@ -1,5 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<input type="checkbox" class="checkbox" id="menu-toogle"/>
+<label for="menu-toogle" class="menu-toogle"></label>
+
+	<nav class="nav">
+		<ul>
+			<li><input type="text" name="buscar" value=""/></li>
+			<li><a href="pagina1.html">Login</a></li>
+			<li><a href="pagina2.html">Registrar</a></li>
+			<li><a href="pagina3.html">Logout</a></li>
+			<li><a href="pagina4.html">Nueva entrada</a></li>
+			<li><a href="pagina5.html">Pagina1</a></li>
+		</ul>
+	</nav>
+
+<main class="main">
 <head>
 	<meta charset="UTF-8">
 	<title>Ejemplo 1</title>
@@ -7,19 +23,13 @@
 </head>
 <body>
 	<header>
-		<h1>Ejemplo de Emer</h1>
+	<div id="logo">
+		<img src="foto.jpg" width="500" height="150">
+		</div>
 		<h2>ph2</h2>
 	</header>
-	<nav>
-		<ul>
-			<li><a href="pagina1.html">Pagina 1</a></li>
-			<li><a href="pagina2.html">Pagina 2</a></li>
-			<li><a href="pagina3.html">Pagina 3</a></li>
-			<li><a href="pagina4.html">Pagina 4</a></li>
-			<li><a href="pagina5.html">Pagina 5</a></li>
-		</ul>
-	</nav>
 	<section>
+	<div id="articulos">
 		<h3>Parte princpal</h3>
 		<article>
 			<h4>Articulo 1</h4>
@@ -63,9 +73,11 @@
 				<p>Pie del articulo 6</p>
 			</footer>
 		</article>
+		</div>
 	</section>
 	<footer>
 		<p>Footer de la pagina</p>
 	</footer>
 </body>
+</main>
 </html>

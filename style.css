@@ -1,3 +1,82 @@
 a{
 	color: #FFFFFF;
 }
+* {
+  box-sizing:border-box;
+}
+
+
+.logo{
+	text-align: center;
+	top:100px;
+	left:100px;
+}
+@media screen and (min-width: 1200px) {
+
+	.checkbox{
+		opacity: 0;
+	}
+	.menu-toogle{
+		display:none;
+	}
+	.nav{
+  position:absolute;
+  width:20vw;
+  height:80vh;
+  top:20vh;
+  left:0vw; /*Ocultamos el menú en la parte izquierda para que no se vea a menos que pulsemos*/
+  padding-top:47px;
+  background-color: rgba(29, 33, 32, 1);
+  border-right:4px solid rgba(114, 126, 3, 1);
+	}
+	.articulos{
+		left:20vw;
+	}
+
+}
+@media screen and (max-width: 1200px) {
+
+	.checkbox{
+		width:50px;
+		height: 50px;
+		position:absolute;
+		top: 4vw;
+		left: 4vw;
+		opacity: 0;
+		
+	}
+	
+.menu-toogle {
+    position:absolute; /*Lo posicionamos absolutamente para poder darle una posición y poder moverlo según el menú esté abierto o cerrado*/
+    width: 50px;
+    line-height:1.1;
+    text-align:center;
+    top: 5vw; /*Le damos una posición top y left en donde queramos que se encuentre la hamburguesa del menú*/
+    left: 5vw; 
+    border-radius:3px;
+    background-color: #142b25;
+    transition: all .7s ease; /*Añadimos una transición para que realice un desplazamineto suave*/
+    z-index:10;
+  }
+    /*Añadimos la haburguesa y le damos unos estilos*/
+.menu-toogle::before {
+      content:"☰";
+      font-size:32px;
+      color:white;
+    }
+.nav {
+  position:absolute;
+  width:75vw;
+  height:100vh;
+  top:10vh;
+  left:-80vw; /*Ocultamos el menú en la parte izquierda para que no se vea a menos que pulsemos*/
+  padding-top:47px;
+  background-color: rgba(29, 33, 32, 1);
+  border-right:4px solid rgba(114, 126, 3, 1);
+  transition:all .7s ease; /*Damos a la caja del menú una transición para que tenga un desplazamiento suave*/
+}
+
+.checkbox:checked ~ .nav {
+      left:0px; /*Le quitamos el left negativo para que el menú vuelva a su posición original*/
+    }
+}
