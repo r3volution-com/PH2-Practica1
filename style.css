@@ -1,3 +1,7 @@
+html, body{
+  margin: 0px;
+  padding: 0px;
+}
 a{
 	color: #FFFFFF;
 }
@@ -5,22 +9,46 @@ a{
   box-sizing:border-box;
 }
 .logo{
-	text-align: center;
-	top:100px;
-	left:100px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  height: 12vw;
+  max-height: 200px;
 }
-@media screen and (min-width: 1200px) {
+.logo img{
+  height: 100%;
+  margin-bottom: -4px;
+}
+.title {
+  display: inline-block;
+  vertical-align: top;
+}
+header{
+  background-color: #EEEEEE;
+}
+nav ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+@media screen and (min-width: 800px) {
+  .logo{
+    width: 25vw;
+    text-align: left;
+  }
+  .logo img{
+  }
 	.checkbox{
-		opacity: 0;
+		display: none;
 	}
 	.menu-toogle{
 		display:none;
 	}
-	.nav{
+	nav{
     position:absolute;
-    width:20vw;
+    width:21vw;
     height:80vh;
-    top:20vh;
+    top:12vw;
     left:0vw; /*Ocultamos el menú en la parte izquierda para que no se vea a menos que pulsemos*/
     padding-top:47px;
     background-color: rgba(29, 33, 32, 1);
@@ -30,7 +58,10 @@ a{
 		left:20vw;
 	}
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 800px) {
+  .title{
+    display: none;
+  }
 	.checkbox{
 		width:50px;
 		height: 50px;
@@ -44,8 +75,8 @@ a{
     width: 50px;
     line-height:1.1;
     text-align:center;
-    top: 5vw; /*Le damos una posición top y left en donde queramos que se encuentre la hamburguesa del menú*/
-    left: 5vw; 
+    top: 3vw; /*Le damos una posición top y left en donde queramos que se encuentre la hamburguesa del menú*/
+    left: 3vw; 
     border-radius:3px;
     background-color: #142b25;
     transition: all .7s ease; /*Añadimos una transición para que realice un desplazamineto suave*/
@@ -57,7 +88,7 @@ a{
     font-size:32px;
     color:white;
   }
-  .nav {
+  nav {
     position:absolute;
     width:75vw;
     height:100vh;
@@ -68,7 +99,7 @@ a{
     border-right:4px solid rgba(114, 126, 3, 1);
     transition:all .7s ease; /*Damos a la caja del menú una transición para que tenga un desplazamiento suave*/
   }
-  .checkbox:checked ~ .nav {
+  .checkbox:checked ~ nav {
     left:0px; /*Le quitamos el left negativo para que el menú vuelva a su posición original*/
   }
 }

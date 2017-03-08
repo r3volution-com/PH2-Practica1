@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>Ejemplo 1</title>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="style.css"/>
 	</head>
 	<body>
 		<header>
 			<input type="checkbox" class="checkbox" id="menu-toogle"/>
 			<label for="menu-toogle" class="menu-toogle"></label>
-			<div id="logo">
-				<img src="foto.jpg" width="500" height="150">
+			<nav>
+				<ul>
+					<li><input type="text" name="buscar" value=""/></li>
+					<li><a href="pagina1.html">Login</a></li>
+					<li><a href="pagina2.html">Registrar</a></li>
+					<li><a href="pagina3.html">Logout</a></li>
+					<li><a href="pagina4.html">Nueva entrada</a></li>
+					<li><a href="pagina5.html">Pagina1</a></li>
+				</ul>
+			</nav>
+			<div class="logo">
+				<img src="foto.jpg">
 			</div>
-			<h2>ph2</h2>
+			<h2 class="title">ph2</h2>
 		</header>
-		<section>
-
-		<nav class="nav">
-			<ul>
-				<li><input type="text" name="buscar" value=""/></li>
-				<li><a href="pagina1.html">Login</a></li>
-				<li><a href="pagina2.html">Registrar</a></li>
-				<li><a href="pagina3.html">Logout</a></li>
-				<li><a href="pagina4.html">Nueva entrada</a></li>
-				<li><a href="pagina5.html">Pagina1</a></li>
-			</ul>
-		</nav>
-		<main class="main">
-			<div id="articulos">
+		<main>
+			<section>
 				<h3>Parte princpal</h3>
 				<article>
 					<h4>Articulo 1</h4>
@@ -71,11 +70,10 @@
 						<p>Pie del articulo 6</p>
 					</footer>
 				</article>
-				</div>
 			</section>
-			<footer>
-				<p>Footer de la pagina</p>
-			</footer>
 		</main>
+		<footer>
+			<p>Footer de la pagina</p>
+		</footer>
 	</body>
 </html>
