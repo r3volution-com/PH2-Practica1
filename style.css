@@ -11,9 +11,13 @@ html, body{
   padding: 0px;
 }
 a{
-  font-size: 2em;
+  font-size: 2.5em;
   text-decoration: none;
-	color: #5f6668;
+	color: #6e7577 ;
+  padding-left:25px;
+  margin-top:25px;
+  margin-bottom:25px;
+  
 }
 * {
   box-sizing:border-box;
@@ -41,7 +45,14 @@ input[type=text]{
   font-size: 2em;
   background-color:#000000; 
   color:#c9c9c9;
+  background-size: 3VH;
   border-color: #636363;
+  margin-bottom: 25px;
+  background-image: url('lupa.png');
+  background-repeat: no-repeat;
+  background-position: 5px 5px;
+  padding-left:10%;
+
 }
 
 nav{
