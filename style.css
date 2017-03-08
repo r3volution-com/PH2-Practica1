@@ -19,6 +19,9 @@ a{
   height: 100%;
   margin-bottom: -4px;
 }
+main{
+  margin-left: 21vw;
+}
 .title {
   display: inline-block;
   vertical-align: top;
