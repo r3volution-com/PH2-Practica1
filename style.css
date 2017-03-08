@@ -1,9 +1,17 @@
+/*COLORES
+#844D9E
+#30499B
+#367ABD
+*/
+
+
 html, body{
+  background-color: #367ABD;
   margin: 0px;
   padding: 0px;
 }
 a{
-	color: #FFFFFF;
+	color: #000000;
 }
 * {
   box-sizing:border-box;
@@ -13,7 +21,6 @@ a{
   width: 100%;
   text-align: center;
   height: 12vw;
-  max-height: 200px;
 }
 .logo img{
   height: 100%;
@@ -26,8 +33,19 @@ main{
   display: inline-block;
   vertical-align: top;
 }
+a:hover{
+  color:;
+
+}
+nav{
+   background-color: #30499B;
+   padding-top:47px;
+   top:12vw;
+       border-right:4px solid rgba(114, 126, 3, 1);
+
+}
 header{
-  background-color: #EEEEEE;
+  background-color: #844D9E;
 }
 nav ul {
   list-style: none;
@@ -51,11 +69,7 @@ nav ul {
     position:absolute;
     width:21vw;
     height:80vh;
-    top:12vw;
-    left:0vw; /*Ocultamos el menú en la parte izquierda para que no se vea a menos que pulsemos*/
-    padding-top:47px;
-    background-color: rgba(29, 33, 32, 1);
-    border-right:4px solid rgba(114, 126, 3, 1);
+    left:0vw;
 	}
 	.articulos{
 		left:20vw;
@@ -95,11 +109,7 @@ nav ul {
     position:absolute;
     width:75vw;
     height:100vh;
-    top:12vw;
     left:-80vw; /*Ocultamos el menú en la parte izquierda para que no se vea a menos que pulsemos*/
-    padding-top:47px;
-    background-color: rgba(29, 33, 32, 1);
-    border-right:4px solid rgba(114, 126, 3, 1);
     transition:all .7s ease; /*Damos a la caja del menú una transición para que tenga un desplazamiento suave*/
   }
   .checkbox:checked ~ nav {
