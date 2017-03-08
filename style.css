@@ -92,7 +92,7 @@ nav ul {
     position:absolute;
     width:75vw;
     height:100vh;
-    top:10vh;
+    top:12vw;
     left:-80vw; /*Ocultamos el menú en la parte izquierda para que no se vea a menos que pulsemos*/
     padding-top:47px;
     background-color: rgba(29, 33, 32, 1);
