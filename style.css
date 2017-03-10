@@ -13,6 +13,8 @@ html, body{
   margin: 0px;
   padding: 0px;
   font-family: arial;
+  min-height: 100%;
+  position: relative;
 }
 a{
   text-decoration: none;
@@ -23,14 +25,16 @@ a:hover{
 }
 header{
   background-color: #375777;
+  min-height: 90px;
 }
 nav{
   position:absolute;
   background-color: #2d2d2d;
   top:12vw;
   border-right:4px solid rgba(114, 126, 3, 1);
+  border-bottom:4px solid rgba(114, 126, 3, 1);
   width:75vw;
-  min-height:100vh;
+  height: 85vh;
   left:-80vw; /*Ocultamos el menú en la parte izquierda para que no se vea a menos que pulsemos*/
   transition:all .7s ease; /*Damos a la caja del menú una transición para que tenga un desplazamiento suave*/
 }
@@ -40,14 +44,14 @@ nav input[type=text]{
   border: 0px;
   font-size: 2em;
   color:#c9c9c9;
-  padding-left:10%;
+  padding-left:40px;
   border-bottom: 1px solid black;
   border-color: #636363;
-  background-size: 3VH;
+  background-size: 25px;
   background-color:#000000; 
   background-image: url('lupa.png');
   background-repeat: no-repeat;
-  background-position: 5px 15px;
+  background-position: 10px 12px;
 }
 nav ul {
   list-style: none;
@@ -82,11 +86,25 @@ nav ul li a {
   margin-top:25px;
   margin-bottom:25px;
 }
+main{
+  padding: 5px;
+}
+footer{
+  padding: 5px;
+  background-color: grey;
+  width: 100%;
+}
+.headerlinks{
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 5px;
+}
 .logo{
   display: inline-block;
-  width: 100%;
   text-align: center;
   height: 12vw;
+  width: 100%;
 }
 .logo img{
   height: 100%;
@@ -126,7 +144,7 @@ nav ul li a {
 .checkbox:checked ~ nav {
   left:0px; /*Le quitamos el left negativo para que el menú vuelva a su posición original*/
 }
-@media screen and (min-width: 600px) and (max-width: 800px) {
+@media screen and (min-width: 600px) and (max-width: 1000px) {
   nav{
     width: 50vw;
   }
@@ -139,21 +157,45 @@ nav ul li a {
     margin-top:25px;
     margin-bottom:25px;
   }
-  nav input[type=text]{
-    background-position: 5px 8px;
-  }
 }
-@media screen and (min-width: 800px) {
-  .title, .subtitle {
-    vertical-align: top;
+@media screen and (min-width: 1000px) and (max-width: 1600px) {
+  nav{
+    top: 12vh;
+    width:21vw;
+    left:0vw;
+  }
+  nav ul li h1 {
+    font-size: 1.5em;
+    margin: 5px 3px 3px 3px;
+  }
+  nav ul li a {
+    font-size: 1.2em;
+    margin-top:25px;
+    margin-bottom:25px;
+  }
+  nav ul li.info, nav ul li.item {
+    display: none;
+  }
+  nav ul li.item i.material-icons{
+    float: left;
+  }
+  .logo{
+    height: 12vh;
+    text-align: left;
     display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    width: 20%;
+  }
+  .headerinfo {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .title, .subtitle{
+    display: block;
   }
   main{
     margin-left: 21vw;
-  }
-  .logo{
-    width: 25vw;
-    text-align: left;
   }
 	.checkbox{
 		display: none;
@@ -161,12 +203,96 @@ nav ul li a {
 	.menu-toogle{
 		display:none;
 	}
-	nav{
-    width:21vw;
-    min-height:80vh;
-    left:0vw;
-	}
 	.articulos{
 		left:20vw;
 	}
+  .headerlinks{
+    display: block;
+    width: 26vw;
+    margin-top: 1vh;
+  }
+  .headerlinks a{
+    display: inline-block;
+    padding: 3px;
+    border: 1px solid lightgrey;
+    width: 12vw;
+    margin: 3px;
+    color: lightgrey;
+    font-weight: bold;
+  }
+  .headerlinks a i{
+    float: left;
+  }
+  .headerinfo h1, .headerinfo p{
+    margin: 5px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  nav{
+    top: 12vh;
+    width:15vw;
+    left:0vw;
+  }
+  nav ul li h1 {
+    font-size: 1.5em;
+    margin: 5px 3px 3px 3px;
+  }
+  nav ul li a {
+    font-size: 1.2em;
+    margin-top:25px;
+    margin-bottom:25px;
+  }
+  nav ul li.info, nav ul li.item {
+    display: none;
+  }
+  nav ul li.item i.material-icons{
+    float: left;
+  }
+  .logo{
+    height: 12vh;
+    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    width: 10%;
+  }
+  .headerinfo {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .title, .subtitle{
+    display: block;
+  }
+  main{
+    margin-left: 15vw;
+  }
+  .checkbox{
+    display: none;
+  }
+  .menu-toogle{
+    display:none;
+  }
+  .articulos{
+    left:20vw;
+  }
+  .headerlinks{
+    display: block;
+    width: 14vw;
+    margin-top: 1.5vh;
+  }
+  .headerlinks a{
+    display: inline-block;
+    padding: 3px;
+    border: 1px solid lightgrey;
+    width: 6vw;
+    margin: 3px;
+    color: lightgrey;
+    font-weight: bold;
+  }
+  .headerinfo h1, .headerinfo p{
+    margin: 10px;
+  }
+  .headerlinks a i{
+    float: left;
+  }
 }
