@@ -29,13 +29,17 @@ nav{
   background-color: #2d2d2d;
   top:12vw;
   border-right:4px solid rgba(114, 126, 3, 1);
+  width:75vw;
+  min-height:100vh;
+  left:-80vw; /*Ocultamos el menú en la parte izquierda para que no se vea a menos que pulsemos*/
+  transition:all .7s ease; /*Damos a la caja del menú una transición para que tenga un desplazamiento suave*/
 }
 nav input[type=text]{
   width:100%;
+  height: 50px;
   border: 0px;
   font-size: 2em;
   color:#c9c9c9;
-  margin-bottom: 20px;
   padding-left:10%;
   border-bottom: 1px solid black;
   border-color: #636363;
@@ -43,7 +47,7 @@ nav input[type=text]{
   background-color:#000000; 
   background-image: url('lupa.png');
   background-repeat: no-repeat;
-  background-position: 5px 8px;
+  background-position: 5px 15px;
 }
 nav ul {
   list-style: none;
@@ -53,17 +57,28 @@ nav ul {
 nav ul li {
   color: #6e7577;
 }
+nav ul li.item {
+  display: inline-block;
+  width: 49%;
+  padding: 3px;
+  border-bottom: 1px solid grey;
+
+}
+nav ul li.info, nav ul li.cat{
+  border-bottom: 1px solid grey;
+  margin-bottom: 5px;
+  padding: 5px;
+}
 nav ul li h1 {
-  font-size: 2.5em;
-  margin: 3px;
+  font-size: 2em;
+  margin: 5px 3px 3px 3px;
 }
 nav ul li p {
   font-size: 1.1em;
   margin: 3px;
 }
 nav ul li a {
-  font-size: 2em;
-  padding-left:25px;
+  font-size: 7vw;
   margin-top:25px;
   margin-bottom:25px;
 }
@@ -77,19 +92,68 @@ nav ul li a {
   height: 100%;
   margin-bottom: -4px;
 }
-.title {
-  display: inline-block;
+.title, .subtitle {
   vertical-align: top;
+  display: none;
+}
+.checkbox{
+  width: 10vw;
+  height: 10vw;
+  position:absolute;
+  top: 1vw;
+  left: 1vw;
+  opacity: 0;
+}
+.menu-toogle {
+  position:absolute; /*Lo posicionamos absolutamente para poder darle una posición y poder moverlo según el menú esté abierto o cerrado*/
+  width: 10vw;
+  height: 10vw;
+  line-height:1.1;
+  text-align:center;
+  top: 1vw; /*Le damos una posición top y left en donde queramos que se encuentre la hamburguesa del menú*/
+  left: 1vw; 
+  border-radius:3px;
+  background-color: #142b25;
+  transition: all .7s ease; /*Añadimos una transición para que realice un desplazamineto suave*/
+  z-index:10;
+}
+/*Añadimos la haburguesa y le damos unos estilos*/
+.menu-toogle::before {
+  content:"☰";
+  font-size:10vw;
+  color:white;
+}
+.checkbox:checked ~ nav {
+  left:0px; /*Le quitamos el left negativo para que el menú vuelva a su posición original*/
+}
+@media screen and (min-width: 600px) and (max-width: 800px) {
+  nav{
+    width: 50vw;
+  }
+  nav ul li h1 {
+    font-size: 2em;
+    margin: 5px 3px 3px 3px;
+  }
+  nav ul li a {
+    font-size: 5vw;
+    margin-top:25px;
+    margin-bottom:25px;
+  }
+  nav input[type=text]{
+    background-position: 5px 8px;
+  }
 }
 @media screen and (min-width: 800px) {
+  .title, .subtitle {
+    vertical-align: top;
+    display: inline-block;
+  }
   main{
     margin-left: 21vw;
   }
   .logo{
     width: 25vw;
     text-align: left;
-  }
-  .logo img{
   }
 	.checkbox{
 		display: none;
@@ -99,50 +163,10 @@ nav ul li a {
 	}
 	nav{
     width:21vw;
-    height:80vh;
+    min-height:80vh;
     left:0vw;
 	}
 	.articulos{
 		left:20vw;
 	}
-}
-@media screen and (max-width: 800px) {
-  .title{
-    display: none;
-  }
-	.checkbox{
-		width:50px;
-		height: 50px;
-		position:absolute;
-		top: 2vw;
-		left: 2vw;
-		opacity: 0;
-	}
-  .menu-toogle {
-    position:absolute; /*Lo posicionamos absolutamente para poder darle una posición y poder moverlo según el menú esté abierto o cerrado*/
-    width: 50px;
-    line-height:1.1;
-    text-align:center;
-    top: 2vw; /*Le damos una posición top y left en donde queramos que se encuentre la hamburguesa del menú*/
-    left: 2vw; 
-    border-radius:3px;
-    background-color: #142b25;
-    transition: all .7s ease; /*Añadimos una transición para que realice un desplazamineto suave*/
-    z-index:10;
-  }
-  /*Añadimos la haburguesa y le damos unos estilos*/
-  .menu-toogle::before {
-    content:"☰";
-    font-size:32px;
-    color:white;
-  }
-  nav {
-    width:75vw;
-    height:100vh;
-    left:-80vw; /*Ocultamos el menú en la parte izquierda para que no se vea a menos que pulsemos*/
-    transition:all .7s ease; /*Damos a la caja del menú una transición para que tenga un desplazamiento suave*/
-  }
-  .checkbox:checked ~ nav {
-    left:0px; /*Le quitamos el left negativo para que el menú vuelva a su posición original*/
-  }
 }
