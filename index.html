@@ -9,87 +9,222 @@
 	</head>
 	<body>
 		<header>
-			<input type="checkbox" class="checkbox" id="menu-toogle"/>
+			<input type="checkbox" class="checkbox" id="menu-toogle"/><!--ToDo: se pueden quitar las class a estos 2 -->
 			<label for="menu-toogle" class="menu-toogle"></label>
 			<nav>
 				<ul>
 					<li><input type="text" name="buscar" value="" placeholder="Busqueda"/></li>
-					<li class="item"><a href="pagina1.html"><i class="material-icons">person</i>Login</a></li>
-					<li class="item"><a href="pagina2.html"><i class="material-icons">person_add</i>Registro</a></li>
-					<li class="item"><a href="pagina3.html"><i class="material-icons">cancel</i>LogOut</a></li>
-					<li class="item"><a href="pagina4.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
+					<li class="item"><a href="login.html"><i class="material-icons">person</i>Login</a></li>
+					<li class="item"><a href="registro.html"><i class="material-icons">person_add</i>Registro</a></li>
+					<li class="item"><a href="#"><i class="material-icons">cancel</i>LogOut</a></li>
+					<li class="item"><a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
 					<li class="info">
 						<h1>ComentaTuVida</h1>
 						<p>La web de comentarios lider.</p>
 					</li>
-					<li class="cat"><a href="pagina5.html">Inicio</a></li>
-					<li class="cat"><a href="pagina5.html">Eventos</a></li>
-					<li class="cat"><a href="pagina5.html">Retos</a></li>
+					<li class="cat"><a href="index.html">Inicio</a></li>
+					<li class="cat"><a href="buscar.html">Buscar</a></li>
+					<li class="cat"><a href="#">Perfil</a></li>
+					<li class="cat"><a href="#">Categoria 1</a></li>
+					<li class="cat"><a href="#">Categoria 2</a></li>
+					<li class="cat"><a href="#">Categoria 3</a></li>
+					<li class="cat"><a href="#">Categoria 4</a></li>
 				</ul>
 			</nav>
 			<div class="logo">
 				<img src="logo.png">
 			</div>
 			<div class="headerinfo">
-				<h1 class="title">ComentaTuVida</h1>
+				<h1 class="title">ComentaTuVida</h1> <!--ToDo: se pueden quitar las class a estos 2 -->
 				<p class="subtitle">La web de comentarios lider.</p>
 			</div>
 			<div class="headerlinks">
-				<a href="pagina1.html"><i class="material-icons">person</i>Login</a>
-				<a href="pagina2.html"><i class="material-icons">person_add</i>Registro</a>
-				<a href="pagina3.html"><i class="material-icons">cancel</i>LogOut</a>
-				<a href="pagina4.html"><i class="material-icons">add_circle</i>Nuevo</a>
+				<a href="login.html"><i class="material-icons">person</i>Login</a>
+				<a href="registro.html"><i class="material-icons">person_add</i>Registro</a>
+				<a href="#"><i class="material-icons">cancel</i>LogOut</a>
+				<a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a>
 			</div>
 		</header>
 		<main>
-			<section>
-				<h3>Parte princpal</h3>
+			<section class="articles">
+				<h2>Ultimos artículos</h2>
 				<article>
-					<h4>Articulo 1</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
-					<div>
-						<p>Pie del articulo 1</p>
+					<div class="aheader">
+						<a href="entrada.html"><img src="foto.jpg"/></a>
+					</div>
+					<div class="abody">
+						<a href="entrada.html"><h3>Articulo 1</h3></a>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
+					</div>
+					<div class="afooter">
+						<p>Autor</p>
+						<p>NumCom</p>
+						<p>Fecha</p>
+						<p>NumFotos</p>
 					</div>
 				</article>
 				<article>
-					<h4>Articulo 2</h4>
-					<p>Eos minima in esse est corporis, optio odio inventore id amet vitae ratione tempore non, fugit molestias itaque deserunt libero consequatur dicta laboriosam repellat. Nobis enim reiciendis nisi adipisci asperiores ab? Harum dolorum beatae nihil sit unde facilis magni eaque?</p>
-					<div>
-						<p>Pie del articulo 2</p>
+					<div class="aheader">
+						<a href="entrada.html"><img src="foto.jpg"/></a>
+					</div>
+					<div class="abody">
+						<a href="entrada.html"><h3>Articulo 1</h3></a>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
+					</div>
+					<div class="afooter">
+						<p>Autor</p>
+						<p>NumCom</p>
+						<p>Fecha</p>
+						<p>NumFotos</p>
 					</div>
 				</article>
 				<article>
-					<h4>Articulo 3</h4>
-					<p>Adipisci deleniti qui vitae hic ad dolore expedita, repellendus odit impedit laboriosam consectetur doloremque, enim corrupti, tempora sint sit ab ipsa ipsam nihil voluptate officia atque! Sed, assumenda, voluptatum vel veritatis quae labore dolores sequi? Fugit vel, iusto eveniet delectus.</p>
-					<div>
-						<p>Pie del articulo 3</p>
+					<div class="aheader">
+						<a href="entrada.html"><img src="foto.jpg"/></a>
+					</div>
+					<div class="abody">
+						<a href="entrada.html"><h3>Articulo 1</h3></a>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
+					</div>
+					<div class="afooter">
+						<p>Autor</p>
+						<p>NumCom</p>
+						<p>Fecha</p>
+						<p>NumFotos</p>
 					</div>
 				</article>
 				<article>
-					<h4>Articulo 4</h4>
-					<p>Velit, dolor aperiam voluptate impedit eum? Praesentium, odio voluptates modi est veritatis omnis quae blanditiis tempora ipsa, perferendis! Inventore similique ullam nobis expedita dolor odio omnis eos facere rem, necessitatibus esse nisi velit molestias fugiat ea iusto asperiores architecto voluptas.</p>
-					<div>
-						<p>Pie del articulo 4</p>
+					<div class="aheader">
+						<a href="entrada.html"><img src="foto.jpg"/></a>
+					</div>
+					<div class="abody">
+						<a href="entrada.html"><h3>Articulo 1</h3></a>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
+					</div>
+					<div class="afooter">
+						<p>Autor</p>
+						<p>NumCom</p>
+						<p>Fecha</p>
+						<p>NumFotos</p>
 					</div>
 				</article>
 				<article>
-					<h4>Articulo 5</h4>
-					<p>Eligendi ipsa vel vero consequatur, quia ad delectus est voluptas? Facilis accusantium ratione blanditiis hic quas nobis voluptatibus, delectus, amet architecto rem nostrum, perferendis distinctio natus impedit eaque dolorum! Consectetur excepturi suscipit officiis laboriosam corrupti fugit, vel a quidem impedit.</p>
-					<div>
-						<p>Pie del articulo 5</p>
+					<div class="aheader">
+						<a href="entrada.html"><img src="foto.jpg"/></a>
+					</div>
+					<div class="abody">
+						<a href="entrada.html"><h3>Articulo 1</h3></a>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
+					</div>
+					<div class="afooter">
+						<p>Autor</p>
+						<p>NumCom</p>
+						<p>Fecha</p>
+						<p>NumFotos</p>
 					</div>
 				</article>
 				<article>
-					<h4>Articulo 6</h4>
-					<p>Temporibus iste voluptates rerum, dolorem porro laborum odio debitis obcaecati eos aspernatur. Facere architecto doloribus sunt autem nihil quos exercitationem cumque, atque nobis illum velit, ipsam sit earum obcaecati. Distinctio incidunt inventore quisquam, quibusdam consequatur a, provident fugit repudiandae id!</p>
-					<div>
-						<p>Pie del articulo 6</p>
+					<div class="aheader">
+						<a href="entrada.html"><img src="foto.jpg"/></a>
+					</div>
+					<div class="abody">
+						<a href="entrada.html"><h3>Articulo 1</h3></a>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
+					</div>
+					<div class="afooter">
+						<p>Autor</p>
+						<p>NumCom</p>
+						<p>Fecha</p>
+						<p>NumFotos</p>
 					</div>
 				</article>
 			</section>
+			<section>
+				<h2>Últimos comentarios</h2>
+				<div class="comments">
+					<div>
+						<h2>Titulo del post</h2>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<h2>Titulo del post</h2>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<h2>Titulo del post</h2>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<h2>Titulo del post</h2>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<h2>Titulo del post</h2>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<h2>Titulo del post</h2>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<h2>Titulo del post</h2>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<h2>Titulo del post</h2>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<h2>Titulo del post</h2>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<h2>Titulo del post</h2>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+				</div>
+			</section>
 		</main>
 		<footer>
-			<p>Footer de la pagina</p>
+			<div>
+				<h2>Información de contacto</h2>
+				<p>
+					<b>Nombre</b>: ComentaTuVida<br>
+					<b>Telefono</b>: 695847362<br>
+					<b>E-mail</b>: comentatuvida@comentala.com<br>
+					<b>Dirección</b>: Calle falsa, 123, Madrid, España
+				</p>
+			</div>
+			<div>
+				<h2>Enlaces útiles</h2>
+				<p>
+					<a href="acerca.html">Acerca de ComentaTuVida</a>
+					<a href="legal.html">Informacion legal</a>
+					<a href="privacidad.html">Politica de privacidad</a>
+					<a href="cookies.html">Politica de cookies</a>
+				</p>
+			</div>
+			<p><b>&copy;2017 - ComentaTuVida</b></p>
 		</footer>
 	</body>
 </html>
