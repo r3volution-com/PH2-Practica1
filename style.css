@@ -27,6 +27,35 @@ header{
   background-color: #375777;
   min-height: 90px;
 }
+header>input[type="checkbox"]{
+  width: 10vw;
+  height: 10vw;
+  position:absolute;
+  top: 1vw;
+  left: 1vw;
+  opacity: 0;
+}
+header>input[type="checkbox"]:checked ~ nav {
+  left:0px; /*Le quitamos el left negativo para que el menú vuelva a su posición original*/
+}
+header>label {
+  position:absolute; /*Lo posicionamos absolutamente para poder darle una posición y poder moverlo según el menú esté abierto o cerrado*/
+  width: 10vw;
+  height: 10vw;
+  line-height:1.1;
+  text-align:center;
+  top: 1vw; /*Le damos una posición top y left en donde queramos que se encuentre la hamburguesa del menú*/
+  left: 1vw; 
+  border-radius:3px;
+  background-color: #142b25;
+  transition: all .7s ease; /*Añadimos una transición para que realice un desplazamineto suave*/
+  z-index:10;
+}
+header>label::before {
+  content:"☰";
+  font-size:10vw;
+  color:white;
+}
 nav{
   position:absolute;
   background-color: #2d2d2d;
@@ -101,57 +130,7 @@ nav ul li p {
 nav ul li a {
   font-size: 7vw;
 }
-/*Cuerpo*/
-main{
-  padding: 5px;
-}
-section>h2{
-  text-align: center;
-}
-section .comments {
-  height: 20vh;
-  width: 95%;
-  overflow-y: auto;
-  background-color: #888888;
-  margin: auto;
-}
-section .comments>div{
-  background-color: #CCCCCC;
-  padding: 5px;
-  margin: 5px;
-  box-shadow: 2px 2px 2px black;
-}
-section.articles{
-  text-align: center;
-}
-article{
-  text-align: left;
-  background-color: white;
-  margin: 10px;
-  box-shadow: 3px 3px 3px black;
-  display: inline-block;
-  width: 90%;
-  vertical-align: top;
-}
-article img {
-  width: 100%;
-  max-height: 30vh;
-}
-article .abody{
-  padding: 5px;
-}
-article .afooter{
-  margin: 5px;
-  border-top: 1px solid lightgrey;
-}
-article .afooter p {
-  display: inline-block;
-  width: 49%;
-  margin: 5px 0px;
-}
-article .afooter p:nth-child(even){
-  text-align: right;
-}
+
 /*Pie*/
 footer{
   padding: 5px;
@@ -198,39 +177,9 @@ footer>div h2, footer>p{
   height: 100%;
   margin-bottom: -4px;
 }
-.title, .subtitle {
+.headerinfo h1, .headerinfo p {
   vertical-align: top;
   display: none;
-}
-.checkbox{
-  width: 10vw;
-  height: 10vw;
-  position:absolute;
-  top: 1vw;
-  left: 1vw;
-  opacity: 0;
-}
-.menu-toogle {
-  position:absolute; /*Lo posicionamos absolutamente para poder darle una posición y poder moverlo según el menú esté abierto o cerrado*/
-  width: 10vw;
-  height: 10vw;
-  line-height:1.1;
-  text-align:center;
-  top: 1vw; /*Le damos una posición top y left en donde queramos que se encuentre la hamburguesa del menú*/
-  left: 1vw; 
-  border-radius:3px;
-  background-color: #142b25;
-  transition: all .7s ease; /*Añadimos una transición para que realice un desplazamineto suave*/
-  z-index:10;
-}
-/*Añadimos la haburguesa y le damos unos estilos*/
-.menu-toogle::before {
-  content:"☰";
-  font-size:10vw;
-  color:white;
-}
-.checkbox:checked ~ nav {
-  left:0px; /*Le quitamos el left negativo para que el menú vuelva a su posición original*/
 }
 @media screen and (min-width: 600px) and (max-width: 1000px) {
   nav{
@@ -243,11 +192,14 @@ footer>div h2, footer>p{
   nav ul li a {
     font-size: 5vw;
   }
-  section>article{
-    width: 45%;
-  }
 }
 @media screen and (min-width: 1000px) and (max-width: 1400px) {
+  header>input[type="checkbox"]{
+    display: none;
+  }
+  header>label{
+    display:none;
+  }
   nav{
     top: 12vh;
     width:21vw;
@@ -278,21 +230,10 @@ footer>div h2, footer>p{
     display: inline-block;
     vertical-align: middle;
   }
-  .title, .subtitle{
+  .headerinfo h1, .headerinfo p{
     display: block;
   }
-  main{
-    margin-left: 21vw;
-  }
-	.checkbox{
-		display: none;
-	}
-	.menu-toogle{
-		display:none;
-	}
-	.articulos{
-		left:20vw;
-	}
+	
   .headerlinks{
     display: block;
     width: 26vw;
@@ -316,17 +257,14 @@ footer>div h2, footer>p{
   .headerinfo h1, .headerinfo p{
     margin: 5px;
   }
-  section>article{
-    width: 45%;
-  }
-
-  section .comments>div{
-    display: inline-block;
-    width: 49%;
-    margin: 3px;
-  }
 }
 @media screen and (min-width: 1400px) {
+  header>input[type="checkbox"]{
+    display: none;
+  }
+  header>label{
+    display:none;
+  }  
   nav{
     top: 12vh;
     width:15vw;
@@ -345,17 +283,7 @@ footer>div h2, footer>p{
   nav ul li.item i.material-icons{
     float: left;
   }
-  main{
-    margin-left: 15vw;
-  }
-  section>article{
-    width: 30%;
-  }
-  section .comments>div{
-    display: inline-block;
-    width: 49%;
-    margin: 3px;
-  }
+
   .logo{
     height: 12vh;
     text-align: left;
@@ -368,17 +296,8 @@ footer>div h2, footer>p{
     display: inline-block;
     vertical-align: middle;
   }
-  .title, .subtitle{
+  .headerinfo h1, .headerinfo p{
     display: block;
-  }
-  .checkbox{
-    display: none;
-  }
-  .menu-toogle{
-    display:none;
-  }
-  .articulos{
-    left:20vw;
   }
   .headerlinks{
     display: block;
