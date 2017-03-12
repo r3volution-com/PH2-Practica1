@@ -49,6 +49,15 @@ article .afooter p {
 article .afooter p:nth-child(even){
   text-align: right;
 }
+article:last-child {
+  text-align: center;
+}
+article:last-child a{
+  display: inline-block;
+  border-radius: 5px;
+  padding: 3px;
+  background-color: lightgrey;
+}
 @media screen and (min-width: 600px) and (max-width: 1000px) {
   section>article{
     width: 45%;
