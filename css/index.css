@@ -1,12 +1,10 @@
 /*Cuerpo*/
-main{
-  padding: 5px;
-}
 section>h2{
   text-align: center;
 }
 section .comments {
   height: 20vh;
+  min-height: 200px;
   width: 95%;
   overflow-y: auto;
   background-color: #888888;
@@ -21,6 +19,12 @@ section .comments>div{
 section.articles{
   text-align: center;
 }
+section .comments a, section .comments b{
+background-color: transparent;
+display: block;
+word-wrap: break-word;
+text-overflow: ellipsis;
+}
 article{
   text-align: left;
   background-color: white;
@@ -32,7 +36,7 @@ article{
 }
 article img {
   width: 100%;
-  max-height: 30vh;
+  max-height: 40vw;
 }
 article .abody{
   padding: 5px;
@@ -49,10 +53,10 @@ article .afooter p {
 article .afooter p:nth-child(even){
   text-align: right;
 }
-article:last-child {
+section>div {
   text-align: center;
 }
-article:last-child a{
+section>div a{
   display: inline-block;
   border-radius: 5px;
   padding: 3px;
@@ -73,7 +77,6 @@ article:last-child a{
   section>article{
     width: 45%;
   }
-
   section .comments>div{
     display: inline-block;
     width: 49%;

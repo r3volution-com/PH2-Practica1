@@ -5,7 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>ComentaTuVida</title>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" href="style.css"/>
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/registro.css">
 	</head>
 	<body>
 		<header>
@@ -15,11 +17,11 @@
 				<ul>
 					<li><input type="text" name="buscar" value="" placeholder="Busqueda"/></li>
 					<li class="item"><a href="login.html"><i class="material-icons">person</i>Login</a></li>
-					<li class="item"><a href="registro.html"><i class="material-icons">person_add</i>Registro</a></li>
+					<li class="item" class="active"><a href="registro.html"><i class="material-icons">person_add</i>Registro</a></li>
 					<li class="item"><a href="#"><i class="material-icons">cancel</i>LogOut</a></li>
 					<li class="item"><a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
 					<li class="info">
-						<h1>ComentaTuVida</h1>
+						<a href="index.html"><h1>ComentaTuVida</h1></a>
 						<p>La web de comentarios lider.</p>
 					</li>
 					<li class="cat"><a href="index.html">Inicio</a></li>
@@ -32,21 +34,36 @@
 				</ul>
 			</nav>
 			<div class="logo">
-				<img src="logo.png">
+				<a href="index.html"><img src="img/logo.png"></a>
 			</div>
 			<div class="headerinfo">
-				<h1>ComentaTuVida</h1> <!--ToDo: se pueden quitar las class a estos 2 -->
+				<a href="index.html"><h1>ComentaTuVida</h1></a>
 				<p>La web de comentarios lider.</p>
 			</div>
 			<div class="headerlinks">
 				<a href="login.html"><i class="material-icons">person</i>Login</a>
-				<a href="registro.html"><i class="material-icons">person_add</i>Registro</a>
+				<a href="registro.html" class="active"><i class="material-icons">person_add</i>Registro</a>
 				<a href="#"><i class="material-icons">cancel</i>LogOut</a>
 				<a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a>
 			</div>
 		</header>
 		<main>
-			
+			<section>
+				<h2>Registro</h2>
+				<form>
+					<label for="name">Nombre completo</label>
+					<input type="text" name="name" id="name" required autofocus placeholder="Nombre completo"/>
+					<label for="username">Usuario</label>
+					<input type="text" name="username" id="username" required pattern="^[a-zA-Z][a-zA-Z0-9]{1,19}" placeholder="Usuario"/>
+					<label for="password">Contraseña</label>
+					<input type="password" name="password" id="password" required pattern="^[a-zA-Z0-9_\-]{1,20}" placeholder="Contraseña"/>
+					<label for="password2">Repetir Contraseña</label>
+					<input type="password" name="password2" id="password2" required pattern="^[a-zA-Z0-9_\-]{1,20}" placeholder="Contraseña"/>
+					<label for="email">E-mail</label>
+					<input type="email" name="email" id="email" required placeholder="E-mail"/>
+					<input type="submit" value="Enviar"/>
+				</form>
+			</section>
 		</main>
 		<footer>
 			<div>

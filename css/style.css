@@ -8,12 +8,17 @@
   box-sizing:border-box;
 }
 html, body{
-  background-color: #4d8ac6;
   margin: 0px;
   padding: 0px;
-  font-family: arial;
+}
+html{
   min-height: 100%;
   position: relative;
+}
+body{
+  height: 100%;
+  background-color: #4d8ac6;
+  font-family: 'Roboto', sans-serif;
 }
 a{
   text-decoration: none;
@@ -25,47 +30,47 @@ a:hover{
 /*Cabecera*/
 header{
   background-color: #375777;
-  min-height: 90px;
+  position: relative;
+  height: 50px;
 }
 header>input[type="checkbox"]{
-  width: 10vw;
-  height: 10vw;
   position:absolute;
-  top: 1vw;
-  left: 1vw;
+  width: 40px;
+  height: 40px;
+  top: 5px;
+  left: 5px;
   opacity: 0;
 }
 header>input[type="checkbox"]:checked ~ nav {
-  left:0px; /*Le quitamos el left negativo para que el menú vuelva a su posición original*/
+  left:0px; 
 }
 header>label {
-  position:absolute; /*Lo posicionamos absolutamente para poder darle una posición y poder moverlo según el menú esté abierto o cerrado*/
-  width: 10vw;
-  height: 10vw;
+  position:absolute;
+  width: 40px;
+  height: 40px;
+  top: 5px; 
+  left: 5px; 
   line-height:1.1;
   text-align:center;
-  top: 1vw; /*Le damos una posición top y left en donde queramos que se encuentre la hamburguesa del menú*/
-  left: 1vw; 
   border-radius:3px;
   background-color: #142b25;
-  transition: all .7s ease; /*Añadimos una transición para que realice un desplazamineto suave*/
+  transition: all .7s ease; 
   z-index:10;
 }
 header>label::before {
   content:"☰";
-  font-size:10vw;
+  font-size:40px;
   color:white;
 }
 nav{
-  position:absolute;
+  position: absolute;
+  width:75vw;
+  top:50px;
+  left:-80vw; 
   background-color: #2d2d2d;
-  top:12vw;
   border-right:4px solid rgba(114, 126, 3, 1);
   border-bottom:4px solid rgba(114, 126, 3, 1);
-  width:75vw;
-  height: 70%;
-  left:-80vw; /*Ocultamos el menú en la parte izquierda para que no se vea a menos que pulsemos*/
-  transition:all .7s ease; /*Damos a la caja del menú una transición para que tenga un desplazamiento suave*/
+  transition:all .7s ease; 
 }
 nav input[type='text']{
   width:100%;
@@ -78,7 +83,7 @@ nav input[type='text']{
   border-color: #636363;
   background-size: 25px;
   background-color:#000000; 
-  background-image: url('lupa.png');
+  background-image: url('../img/lupa.png');
   background-repeat: no-repeat;
   background-position: 10px 12px;
 }
@@ -119,8 +124,8 @@ nav ul li.info a, nav ul li.cat a{
 nav ul li.info a:hover, nav ul li.cat a:hover{
   background-color: #3e3e3e;
 }
-nav ul li h1 {
-  font-size: 2em;
+nav ul li a h1 {
+  font-size: 1em;
   margin: 5px 3px 3px 3px;
 }
 nav ul li p {
@@ -130,12 +135,22 @@ nav ul li p {
 nav ul li a {
   font-size: 7vw;
 }
-
+nav ul li.active{
+  background-color: #3e3e3e;
+}
+/*Cuerpo*/
+main{
+  padding: 5px;
+  margin-bottom: 280px;
+  min-height: 700px;
+}
 /*Pie*/
 footer{
   padding: 5px;
   background-color: grey;
   width: 100%;
+  position: absolute;
+  bottom: 0px;
 }
 footer>div{
   display: inline-block;
@@ -154,23 +169,27 @@ footer>div a{
   margin-bottom: 5px;
 }
 footer>div h2, footer>p{
-  margin: 5px 0px;
+  margin: 0px 0px;
 }
 /*Clases*/
 .headerlinks{
   display: none;
   position: absolute;
   right: 0px;
-  top: 5px;
+  top: 0px;
 }
 .headerlinks a{
   background-color: #666666;
   line-height: 1.5em;
+    box-shadow: 2px 2px 2px black;
+}
+.headerlinks a.active{
+  background-color: #777777;
 }
 .logo{
   display: inline-block;
   text-align: center;
-  height: 12vw;
+  height: 50px;
   width: 100%;
 }
 .logo img{
@@ -181,9 +200,10 @@ footer>div h2, footer>p{
   vertical-align: top;
   display: none;
 }
-@media screen and (min-width: 600px) and (max-width: 1000px) {
+@media screen and (min-width: 480px) and (max-width: 1000px) {
   nav{
     width: 50vw;
+    top: 84px;
   }
   nav ul li h1 {
     font-size: 2em;
@@ -192,8 +212,35 @@ footer>div h2, footer>p{
   nav ul li a {
     font-size: 5vw;
   }
+  nav ul li.item{
+    display: none;
+  }
+  main{
+    margin-top: 35px;
+    margin-bottom: 220px;
+  }
+  .headerlinks{
+    display: block;
+    width: 100%;
+    top: 50px;
+    background: #375777;
+    text-align: center;
+    padding: 5px 0px;
+  }
+  .headerlinks a {
+    display: inline-block;
+    width: 24%;
+    text-align: left;
+    color: #222222;
+  }
+  .headerlinks a i {
+    float: left;
+  }
 }
 @media screen and (min-width: 1000px) and (max-width: 1400px) {
+  header{
+    height: 80px;
+  }
   header>input[type="checkbox"]{
     display: none;
   }
@@ -201,9 +248,10 @@ footer>div h2, footer>p{
     display:none;
   }
   nav{
-    top: 12vh;
-    width:21vw;
+    top: 80px;
     left:0vw;
+    width:21vw;
+    min-height: 60vh;
   }
   nav ul li h1 {
     font-size: 1.5em;
@@ -218,13 +266,17 @@ footer>div h2, footer>p{
   nav ul li.item i.material-icons{
     float: left;
   }
+  main {
+    min-height: 60vh;
+    margin-bottom: 200px;
+  }
   .logo{
-    height: 12vh;
     text-align: left;
     display: inline-block;
     vertical-align: middle;
     margin-left: 5px;
     width: auto;
+    height: 80px;
   }
   .headerinfo {
     display: inline-block;
@@ -233,18 +285,17 @@ footer>div h2, footer>p{
   .headerinfo h1, .headerinfo p{
     display: block;
   }
-	
   .headerlinks{
     display: block;
     width: 26vw;
-    margin-top: 1vh;
+    margin-top: 10px;
   }
   .headerlinks a{
     display: inline-block;
-    padding: 3px;
+    padding: 1px;
     border: 1px solid lightgrey;
     width: 12vw;
-    margin: 3px;
+    margin: 1px;
     color: lightgrey;
     font-weight: bold;
   }
@@ -255,10 +306,13 @@ footer>div h2, footer>p{
     float: left;
   }
   .headerinfo h1, .headerinfo p{
-    margin: 5px;
+    margin: 1px;
   }
 }
 @media screen and (min-width: 1400px) {
+  header{
+    height: 100px;
+  }
   header>input[type="checkbox"]{
     display: none;
   }
@@ -266,9 +320,14 @@ footer>div h2, footer>p{
     display:none;
   }  
   nav{
-    top: 12vh;
-    width:15vw;
+    top: 100px;
     left:0vw;
+    width:15vw;
+    min-height: 65vh;
+  }
+  main{
+    min-height: 65vh;
+    margin-bottom: 200px;
   }
   nav ul li h1 {
     font-size: 1.5em;
@@ -283,14 +342,13 @@ footer>div h2, footer>p{
   nav ul li.item i.material-icons{
     float: left;
   }
-
   .logo{
-    height: 12vh;
     text-align: left;
     display: inline-block;
     vertical-align: middle;
     margin-left: 10px;
     width: auto;
+    height: 100%;
   }
   .headerinfo {
     display: inline-block;
@@ -302,7 +360,7 @@ footer>div h2, footer>p{
   .headerlinks{
     display: block;
     width: 16vw;
-    margin-top: 1.5vh;
+    margin-top: 10px;
   }
   .headerlinks a{
     display: inline-block;
@@ -318,6 +376,7 @@ footer>div h2, footer>p{
   }
   .headerinfo h1, .headerinfo p{
     margin: 10px;
+    margin-top: 0px;
   }
   .headerlinks a i{
     float: left;
