@@ -269,6 +269,7 @@ footer>div h2, footer>p{
   main {
     min-height: 60vh;
     margin-bottom: 200px;
+    margin-left: 21vw;
   }
   .logo{
     text-align: left;
@@ -328,6 +329,7 @@ footer>div h2, footer>p{
   main{
     min-height: 65vh;
     margin-bottom: 200px;
+	margin-left: 15vw;
   }
   nav ul li h1 {
     font-size: 1.5em;
