@@ -8,35 +8,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" type="text/css" href="css/index.css">
-		<script>
-			function ajaxRequest(type, action, callback) {
-			  	var xhttp = new XMLHttpRequest();
-			  	xhttp.onreadystatechange = function() {
-			   		if (this.readyState == 4 && this.status == 200) {
-			   			var obj = JSON.parse(this.responseText);
-			   			if (obj.RESULTADO == "ok" && obj.CODIGO == "200"){
-				     		callback(obj);
-				     	} else console.log("Error: la consola no se ha realizado correctamente. "+this.responseText);
-			    	}
-			 	};
-			  	xhttp.open(type, action, true);
-			  	xhttp.send();
-			}
-			ajaxRequest("GET", "rest/get/login.php", function(res){
-				if (res.DISPONIBLE == "true"){
-					var items = document.querySelectorAll(".loggedin");
-					for (var item of items){
-						item.style.display = "block";
-					}
-					var items = document.querySelectorAll(".loggedout");
-					for (var item of items){
-						item.style.display = "none";
-					}
-				} else {
-					console.log("No estas logueado");
-				}
-			});
-		</script>
+		<script type="text/javascript" src="js/functions.js"></script>
 	</head>
 	<body>
 		<header>
@@ -45,10 +17,14 @@
 			<nav>
 				<ul>
 					<li><input type="text" name="buscar" value="" placeholder="Busqueda"/></li>
-					<li class="item loggedout"><a href="login.html"><i class="material-icons">person</i>Login</a></li>
-					<li class="item loggedout"><a href="registro.html"><i class="material-icons">person_add</i>Registro</a></li>
-					<li class="item loggedin"><a href="#"><i class="material-icons">cancel</i>LogOut</a></li>
-					<li class="item loggedin"><a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
+					<span class="loggedout">
+						<li class="item"><a href="login.html"><i class="material-icons">person</i>Login</a></li>
+						<li class="item"><a href="registro.html"><i class="material-icons">person_add</i>Registro</a></li>
+					</span>
+					<span class="loggedin">
+						<li class="item"><a href="#"><i class="material-icons">cancel</i>LogOut</a></li>
+						<li class="item"><a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
+					</span>
 					<li class="info">
 						<a href="index.html"><h1>ComentaTuVida</h1></a>
 						<p>La web de comentarios lider.</p>
@@ -70,112 +46,42 @@
 				<p>La web de comentarios lider.</p>
 			</div>
 			<div class="headerlinks">
-				<a class="loggedout" href="login.html"><i class="material-icons">person</i>Login</a>
-				<a class="loggedout" href="registro.html"><i class="material-icons">person_add</i>Registro</a>
-				<a class="loggedin" href="#"><i class="material-icons">cancel</i>LogOut</a>
-				<a class="loggedin" href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a>
+				<span class="loggedout">
+					<a href="login.html"><i class="material-icons">person</i>Login</a>
+					<a href="registro.html"><i class="material-icons">person_add</i>Registro</a>
+				</span>
+				<span class="loggedin">
+					<a href="#"><i class="material-icons">cancel</i>LogOut</a>
+					<a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a>
+				</span>
 			</div>
 		</header>
 		<main>
 			<section class="articles">
 				<h2>Ultimos artículos</h2>
-				<article>
-					<div class="aheader">
-						<a href="entrada.html"><img src="fotos/foto.jpg" alt="Entrada"/></a>
-					</div>
-					<div class="abody">
-						<a href="entrada.html"><h3>Articulo 1</h3></a>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
-					</div>
-					<div class="afooter">
-						<p>Autor</p>
-						<p>NumCom</p>
-						<p>Fecha</p>
-						<p>NumFotos</p>
-					</div>
-				</article>
-				<article>
-					<div class="aheader">
-						<a href="entrada.html"><img src="fotos/foto.jpg" alt="Entrada"/></a>
-					</div>
-					<div class="abody">
-						<a href="entrada.html"><h3>Articulo 1</h3></a>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
-					</div>
-					<div class="afooter">
-						<p>Autor</p>
-						<p>NumCom</p>
-						<p>Fecha</p>
-						<p>NumFotos</p>
-					</div>
-				</article>
-				<article>
-					<div class="aheader">
-						<a href="entrada.html"><img src="fotos/foto.jpg" alt="Entrada"/></a>
-					</div>
-					<div class="abody">
-						<a href="entrada.html"><h3>Articulo 1</h3></a>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
-					</div>
-					<div class="afooter">
-						<p>Autor</p>
-						<p>NumCom</p>
-						<p>Fecha</p>
-						<p>NumFotos</p>
-					</div>
-				</article>
-				<article>
-					<div class="aheader">
-						<a href="entrada.html"><img src="fotos/foto.jpg" alt="Entrada"/></a>
-					</div>
-					<div class="abody">
-						<a href="entrada.html"><h3>Articulo 1</h3></a>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
-					</div>
-					<div class="afooter">
-						<p>Autor</p>
-						<p>NumCom</p>
-						<p>Fecha</p>
-						<p>NumFotos</p>
-					</div>
-				</article>
-				<article>
-					<div class="aheader">
-						<a href="entrada.html"><img src="fotos/foto.jpg" alt="Entrada"/></a>
-					</div>
-					<div class="abody">
-						<a href="entrada.html"><h3>Articulo 1</h3></a>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
-					</div>
-					<div class="afooter">
-						<p>Autor</p>
-						<p>NumCom</p>
-						<p>Fecha</p>
-						<p>NumFotos</p>
-					</div>
-				</article>
-				<article>
-					<div class="aheader">
-						<a href="entrada.html"><img src="fotos/foto.jpg" alt="Entrada"/></a>
-					</div>
-					<div class="abody">
-						<a href="entrada.html"><h3>Articulo 1</h3></a>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
-					</div>
-					<div class="afooter">
-						<p>Autor</p>
-						<p>NumCom</p>
-						<p>Fecha</p>
-						<p>NumFotos</p>
-					</div>
-				</article>
-				<div>
-					<a href="#">&lt;&lt;</a>
-					<a href="#">&lt;</a>
-					<b>2 de 12</b>
-					<a href="#">&gt;</a>
-					<a href="#">&gt;&gt;</a>
+				<div class="a-container">
+
 				</div>
+				<div class="a-pagination">
+					
+				</div>
+				<template>
+					<article>
+						<div class="aheader">
+							<a href=""><img src="" alt=""/></a>
+						</div>
+						<div class="abody">
+							<a href=""><h3></h3></a>
+							<p class="descripcion"></p>
+						</div>
+						<div class="afooter">
+							<p class="autor"></p>
+							<p class="numcom"></p>
+							<p class="fecha"></p>
+							<p class="numfotos"></p>
+						</div>
+					</article>
+				</template>
 			</section>
 			<section>
 				<h2>Últimos comentarios</h2>
@@ -264,5 +170,56 @@
 			</div>
 			<p><b>&copy;2017 - ComentaTuVida</b></p>
 		</footer>
+		<script>
+			var numEntradas = 6;
+			var nPagina = 1;
+			ajaxGetRequest("rest/get/entrada.php?u="+numEntradas, function(res){
+				let entradas = document.querySelectorAll('.a-container article')
+				for (let entrada of entradas){
+					entrada.remove();
+				}
+				let plantilla = document.querySelector('.articles template');
+				for (let fila of res.FILAS){
+					let elem = plantilla.content.cloneNode(true);
+                
+	                elem.querySelector('.aheader a').href = 'http://localhost/practica2/entradas.html?id='+fila.id;
+	                elem.querySelector('.aheader img').src = 'http://localhost/practica2/fotos/'+fila.fichero;
+	                elem.querySelector('.aheader img').alt = 'http://localhost/practica2/fotos/'+fila.nombre;
+	                elem.querySelector('.abody a').href = 'http://localhost/practica2/entradas.html?id='+fila.id;
+					elem.querySelector('.abody h3').innerHTML = fila.nombre;
+					elem.querySelector('.abody .descripcion').innerHTML = fila.descripcion;
+					elem.querySelector('.afooter .autor').innerHTML = fila.login;
+					elem.querySelector('.afooter .numcom').innerHTML = fila.ncomentarios;
+					elem.querySelector('.afooter .numfotos').innerHTML = fila.nfotos;
+					elem.querySelector('.afooter .fecha').innerHTML = fila.fecha;
+
+	                document.querySelector('.a-container').appendChild(elem);
+				}
+				if (nPagina > 1){
+					document.querySelector('.a-pagination').innerHTML = '<a href="#">&lt;&lt;</a><a href="#">&lt;</a><b>'+nPagina+' de 12</b><a href="#">&gt;</a><a href="#">&gt;&gt;</a>';
+				} else {
+					document.querySelector('.a-pagination').innerHTML = '<b>'+nPagina+' de 12</b><a href="#">&gt;</a><a href="#">&gt;&gt;</a>';
+				}
+				if (sessionStorage.getItem("login")){
+					var items = document.querySelectorAll(".loggedin");
+					for (var item of items){
+						item.style.display = "block";
+					}
+					var items = document.querySelectorAll(".loggedout");
+					for (var item of items){
+						item.style.display = "none";
+					}
+				} else {
+					var items = document.querySelectorAll(".loggedout");
+					for (var item of items){
+						item.style.display = "none";
+					}
+					var items = document.querySelectorAll(".loggedin");
+					for (var item of items){
+						item.style.display = "block";
+					}
+				}
+			});
+		</script>
 	</body>
 </html>

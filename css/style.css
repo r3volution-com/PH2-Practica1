@@ -171,6 +171,12 @@ footer>div a{
 footer>div h2, footer>p{
   margin: 0px 0px;
 }
+.loggedin{
+  display: none;
+}
+.loggedout{
+  display: none;
+}
 /*Clases*/
 .headerlinks{
   display: none;
@@ -220,7 +226,7 @@ footer>div h2, footer>p{
     margin-bottom: 220px;
   }
   .headerlinks{
-    display: block;
+    display: inline-block;
     width: 100%;
     top: 50px;
     background: #375777;
@@ -229,7 +235,7 @@ footer>div h2, footer>p{
   }
   .headerlinks a {
     display: inline-block;
-    width: 24%;
+    width: 49%;
     text-align: left;
     color: #222222;
   }
