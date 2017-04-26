@@ -1,31 +1,81 @@
-section{
-  text-align: left;
-  background-color: white;
-  margin: 10px auto;
-  margin-left: 30%
-  box-shadow: 3px 3px 3px black;
-  display: block;
-  width: 90%;
-  vertical-align: top;
-  padding: 10px;
-}
 main{
-  padding: 5px;
-  margin-bottom: 280px;
-  min-height: 700px;
+	min-height: 300px;
 }
-@media screen and (min-width: 1400px) {
-  main{
-    min-height: 65vh;
-    margin-bottom: 200px;
-	margin-left: 15vw;
-  }
+main>section:first-child{
+	background-color: white;
+	width: 30%;
+	min-width: 300px;
+	margin: auto;
+	text-align: center;
+	margin-top: 2vh;
+	padding: 10px;
+	box-shadow: 3px 3px 3px black;
 }
-
-@media screen and (min-width: 1000px) and (max-width: 1400px) {
-  main {
-    min-height: 60vh;
-    margin-bottom: 200px;
-    margin-left: 21vw;
-  }
+section.articles{
+	text-align: center;
+}
+section.articles h2{
+	margin-top: 10px;
+}
+section h2{
+	margin: 3px;
+}
+section label{
+	display: block;
+ 	width: 0px;
+ 	height: 0px;
+ 	opacity: 0;
+}
+section input[type="text"], section input[type="password"]{
+	width: 90%;
+	border:0px;
+	border-bottom: 1px solid #222222;
+	padding: 5px 5px;
+	margin-bottom: 2px;
+	font-size: 1.1em;
+}
+section input[type="date"]{
+	width: 40%;
+	border:0px;
+	border-bottom: 1px solid #222222;
+	padding: 5px 5px;
+	margin-bottom: 2px;
+	font-size: 1.1em;
+}
+section input[type="text"]:hover, section input[type="date"]:hover{
+	padding-left: 4px;
+	border-left: 1px solid grey;
+}
+section input[type="text"]:focus, section input[type="date"]:focus{
+	outline: none;
+	border-bottom: 2px solid #333333;
+	margin-bottom: 1px;
+}
+section input[type="submit"]{
+	width: 90%;
+	margin-top: 10px;
+	padding: 5px;
+	font-size: 1.1em;
+	background-color: #cccccc;
+	border: 0px;
+	font-weight: bold;
+}
+section input[type="submit"]:hover{
+	background-color: #aaaaaa;
+}
+section>div a{
+  display: inline-block;
+  border-radius: 5px;
+  padding: 3px;
+  background-color: lightgrey;
+}
+@media screen and (min-width: 480px) and (max-width: 1000px){
+	main>section{
+		margin-top: 10vh;
+	}
+}
+@media screen and (min-width: 1000px){
+	main>section{
+		margin-top: 20vh;
+	}
 }
