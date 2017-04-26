@@ -1,0 +1,31 @@
+section{
+  text-align: left;
+  background-color: white;
+  margin: 10px auto;
+  margin-left: 30%
+  box-shadow: 3px 3px 3px black;
+  display: block;
+  width: 90%;
+  vertical-align: top;
+  padding: 10px;
+}
+main{
+  padding: 5px;
+  margin-bottom: 280px;
+  min-height: 700px;
+}
+@media screen and (min-width: 1400px) {
+  main{
+    min-height: 65vh;
+    margin-bottom: 200px;
+	margin-left: 15vw;
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
+  main {
+    min-height: 60vh;
+    margin-bottom: 200px;
+    margin-left: 21vw;
+  }
+}
