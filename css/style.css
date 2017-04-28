@@ -174,6 +174,12 @@ footer>div a{
 footer>div h2, footer>p{
   margin: 0px 0px;
 }
+.loggedin{
+  display: none;
+}
+.loggedout{
+  display: none;
+}
 /*Clases*/
 >>>>>>> origin/master:css/style.css
 .headerlinks{
@@ -263,7 +269,7 @@ footer>div h2, footer>p{
     margin-bottom: 220px;
   }
   .headerlinks{
-    display: block;
+    display: inline-block;
     width: 100%;
     top: 50px;
     background: #375777;
@@ -272,7 +278,7 @@ footer>div h2, footer>p{
   }
   .headerlinks a {
     display: inline-block;
-    width: 24%;
+    width: 49%;
     text-align: left;
     color: #222222;
   }
@@ -318,6 +324,7 @@ footer>div h2, footer>p{
   main {
     min-height: 60vh;
     margin-bottom: 200px;
+    margin-left: 21vw;
   }
   .logo{
     text-align: left;
@@ -397,6 +404,7 @@ footer>div h2, footer>p{
   main{
     min-height: 65vh;
     margin-bottom: 200px;
+	margin-left: 15vw;
   }
   nav ul li h1 {
     font-size: 1.5em;
