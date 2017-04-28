@@ -7,7 +7,7 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
-		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/nueva-entrada.css">
 	</head>
 	<body>
 		<header>
@@ -21,11 +21,11 @@
 					<li class="item"><a href="#"><i class="material-icons">cancel</i>LogOut</a></li>
 					<li class="item"><a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
 					<li class="info">
-						<h1>ComentaTuVida</h1>
+						<a href="index.html"><h1>ComentaTuVida</h1></a>
 						<p>La web de comentarios lider.</p>
 					</li>
 					<li class="cat"><a href="index.html">Inicio</a></li>
-					<li class="cat"><a href="buscar.html">Buscar</a></li>
+					<li class="cat active"><a href="buscar.html">Buscar</a></li>
 					<li class="cat"><a href="#">Perfil</a></li>
 					<li class="cat"><a href="#">Categoria 1</a></li>
 					<li class="cat"><a href="#">Categoria 2</a></li>
@@ -34,10 +34,10 @@
 				</ul>
 			</nav>
 			<div class="logo">
-				<img src="img/logo.png">
+				<a href="index.html"><img src="img/logo.png"></a>
 			</div>
 			<div class="headerinfo">
-				<h1>ComentaTuVida</h1> <!--ToDo: se pueden quitar las class a estos 2 -->
+				<a href="index.html"><h1>ComentaTuVida</h1></a>
 				<p>La web de comentarios lider.</p>
 			</div>
 			<div class="headerlinks">
@@ -48,7 +48,26 @@
 			</div>
 		</header>
 		<main>
-			
+			<section>
+<<<<<<< HEAD
+				<h2>Nueva Entrada</h2>
+=======
+				<h2>Nueva entrada</h2>
+>>>>>>> origin/master
+				<form>
+					<label for="title">Titulo</label>
+					<input type="text" name="title" id="title" maxlength="200" required autofocus placeholder="Titulo"/>
+					<label for="text">Descripción</label>
+					<input type="text" name="text" id="text" required autofocus placeholder="Texto"/>
+<<<<<<< HEAD
+					<input type="file" name="img" accept="image/*">
+=======
+					<label for="text">Fotos</label>
+					<input type="file" accept="image/*" src="images/login.jpg"/>
+>>>>>>> origin/master
+					<input type="submit" value="Publicar"/>
+				</form>
+			</section>
 		</main>
 		<footer>
 			<div>
@@ -71,5 +90,5 @@
 			</div>
 			<p><b>&copy;2017 - ComentaTuVida</b></p>
 		</footer>
-	</body>
+</body>
 </html>

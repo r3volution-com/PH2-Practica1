@@ -5,55 +5,40 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>ComentaTuVida</title>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/style.css"/>
-		<link rel="stylesheet" type="text/css" href="css/index.css">
-		<script type="text/javascript" src="js/functions.js"></script>
+		<link rel="stylesheet" href="style.css"/>
 	</head>
 	<body>
 		<header>
-			<input type="checkbox" id="menu-toogle"/>
-			<label for="menu-toogle"></label>
+			<input type="checkbox" class="checkbox" id="menu-toogle"/>
+			<label for="menu-toogle" class="menu-toogle"></label>
 			<nav>
 				<ul>
 					<li><input type="text" name="buscar" value="" placeholder="Busqueda"/></li>
-					<span class="loggedout">
-						<li class="item"><a href="login.html"><i class="material-icons">person</i>Login</a></li>
-						<li class="item"><a href="registro.html"><i class="material-icons">person_add</i>Registro</a></li>
-					</span>
-					<span class="loggedin">
-						<li class="item"><a href="#"><i class="material-icons">cancel</i>LogOut</a></li>
-						<li class="item"><a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
-					</span>
+					<li class="item"><a href="pagina1.html"><i class="material-icons">person</i>Login</a></li>
+					<li class="item"><a href="pagina2.html"><i class="material-icons">person_add</i>Registro</a></li>
+					<li class="item"><a href="pagina3.html"><i class="material-icons">cancel</i>LogOut</a></li>
+					<li class="item"><a href="pagina4.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
 					<li class="info">
-						<a href="index.html"><h1>ComentaTuVida</h1></a>
+						<h1>ComentaTuVida</h1>
 						<p>La web de comentarios lider.</p>
 					</li>
-					<li class="cat active"><a href="index.html">Inicio</a></li>
-					<li class="cat"><a href="buscar.html">Buscar</a></li>
-					<li class="cat loggedin"><a href="#">Perfil</a></li>
-					<li class="cat"><a href="#">Categoria 1</a></li>
-					<li class="cat"><a href="#">Categoria 2</a></li>
-					<li class="cat"><a href="#">Categoria 3</a></li>
-					<li class="cat"><a href="#">Categoria 4</a></li>
+					<li class="cat"><a href="pagina5.html">Inicio</a></li>
+					<li class="cat"><a href="pagina5.html">Eventos</a></li>
+					<li class="cat"><a href="pagina5.html">Retos</a></li>
 				</ul>
 			</nav>
 			<div class="logo">
-				<a href="index.html"><img src="img/logo.png"></a>
+				<img src="logo.png">
 			</div>
 			<div class="headerinfo">
-				<a href="index.html"><h1>ComentaTuVida</h1></a>
-				<p>La web de comentarios lider.</p>
+				<h1 class="title">ComentaTuVida</h1>
+				<p class="subtitle">La web de comentarios lider.</p>
 			</div>
 			<div class="headerlinks">
-				<span class="loggedout">
-					<a href="login.html"><i class="material-icons">person</i>Login</a>
-					<a href="registro.html"><i class="material-icons">person_add</i>Registro</a>
-				</span>
-				<span class="loggedin">
-					<a href="#"><i class="material-icons">cancel</i>LogOut</a>
-					<a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a>
-				</span>
+				<a href="pagina1.html"><i class="material-icons">person</i>Login</a>
+				<a href="pagina2.html"><i class="material-icons">person_add</i>Registro</a>
+				<a href="pagina3.html"><i class="material-icons">cancel</i>LogOut</a>
+				<a href="pagina4.html"><i class="material-icons">add_circle</i>Nuevo</a>
 			</div>
 		</header>
 		<main>
@@ -98,25 +83,7 @@
 			</section>
 		</main>
 		<footer>
-			<div>
-				<h2>Información de contacto</h2>
-				<p>
-					<b>Nombre</b>: ComentaTuVida<br>
-					<b>Telefono</b>: 695847362<br>
-					<b>E-mail</b>: comentatuvida@comentala.com<br>
-					<b>Dirección</b>: Calle falsa, 123, Madrid, España
-				</p>
-			</div>
-			<div>
-				<h2>Enlaces útiles</h2>
-				<p>
-					<a href="acerca.html">Acerca de ComentaTuVida</a>
-					<a href="legal.html">Informacion legal</a>
-					<a href="privacidad.html">Politica de privacidad</a>
-					<a href="cookies.html">Politica de cookies</a>
-				</p>
-			</div>
-			<p><b>&copy;2017 - ComentaTuVida</b></p>
+			<p>Footer de la pagina</p>
 		</footer>
 		<script>
 			var nEntradas = 6;
