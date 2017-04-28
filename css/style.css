@@ -4,7 +4,6 @@
 #4d8ac6
 */
 
-
 * {
   box-sizing:border-box;
 }
@@ -28,13 +27,12 @@ a{
 a:hover{
   color: #4d8ac6;
 }
+/*Cabecera*/
 header{
   background-color: #375777;
   position: relative;
   height: 50px;
 }
-<<<<<<< HEAD:style.css
-=======
 header>input[type="checkbox"]{
   position:absolute;
   width: 40px;
@@ -64,7 +62,6 @@ header>label::before {
   font-size:40px;
   color:white;
 }
->>>>>>> origin/master:css/style.css
 nav{
   position: absolute;
   width:75vw;
@@ -73,16 +70,9 @@ nav{
   background-color: #2d2d2d;
   border-right:4px solid rgba(114, 126, 3, 1);
   border-bottom:4px solid rgba(114, 126, 3, 1);
-<<<<<<< HEAD:style.css
-  width:75vw;
-  height: 85vh;
-  left:-80vw; /*Ocultamos el menú en la parte izquierda para que no se vea a menos que pulsemos*/
-  transition:all .7s ease; /*Damos a la caja del menú una transición para que tenga un desplazamiento suave*/
-=======
   transition:all .7s ease; 
->>>>>>> origin/master:css/style.css
 }
-nav input[type=text]{
+nav input[type='text']{
   width:100%;
   height: 50px;
   border: 0px;
@@ -97,6 +87,13 @@ nav input[type=text]{
   background-repeat: no-repeat;
   background-position: 10px 12px;
 }
+nav input[type='text']:hover{
+  background-color: #222222;
+}
+nav input[type='text']:focus{
+  outline: none;
+  background-color: #444444;
+}
 nav ul {
   list-style: none;
   margin: 0px;
@@ -108,14 +105,24 @@ nav ul li {
 nav ul li.item {
   display: inline-block;
   width: 49%;
-  padding: 3px;
   border-bottom: 1px solid grey;
-
+}
+nav ul li.item a {
+  display: block;
+  padding: 3px;
+}
+nav ul li.item a:hover {
+  background-color: #3e3e3e;
 }
 nav ul li.info, nav ul li.cat{
   border-bottom: 1px solid grey;
-  margin-bottom: 5px;
-  padding: 5px;
+}
+nav ul li.info a, nav ul li.cat a{
+  display: block;
+  padding: 8px;
+}
+nav ul li.info a:hover, nav ul li.cat a:hover{
+  background-color: #3e3e3e;
 }
 nav ul li a h1 {
   font-size: 1em;
@@ -127,14 +134,7 @@ nav ul li p {
 }
 nav ul li a {
   font-size: 7vw;
-  margin-top:25px;
-  margin-bottom:25px;
 }
-main{
-  padding: 5px;
-}
-<<<<<<< HEAD:style.css
-=======
 nav ul li.active{
   background-color: #3e3e3e;
 }
@@ -145,7 +145,6 @@ main{
   min-height: 700px;
 }
 /*Pie*/
->>>>>>> origin/master:css/style.css
 footer{
   padding: 5px;
   background-color: grey;
@@ -153,8 +152,6 @@ footer{
   position: absolute;
   bottom: 0px;
 }
-<<<<<<< HEAD:style.css
-=======
 footer>div{
   display: inline-block;
   width: 49%;
@@ -181,15 +178,12 @@ footer>div h2, footer>p{
   display: none;
 }
 /*Clases*/
->>>>>>> origin/master:css/style.css
 .headerlinks{
   display: none;
   position: absolute;
   right: 0px;
   top: 0px;
 }
-<<<<<<< HEAD:style.css
-=======
 .headerlinks a{
   background-color: #666666;
   line-height: 1.5em;
@@ -198,7 +192,6 @@ footer>div h2, footer>p{
 .headerlinks a.active{
   background-color: #777777;
 }
->>>>>>> origin/master:css/style.css
 .logo{
   display: inline-block;
   text-align: center;
@@ -209,45 +202,11 @@ footer>div h2, footer>p{
   height: 100%;
   margin-bottom: -4px;
 }
-.title, .subtitle {
+.headerinfo h1, .headerinfo p {
   vertical-align: top;
   display: none;
 }
-<<<<<<< HEAD:style.css
-.checkbox{
-  width: 10vw;
-  height: 10vw;
-  position:absolute;
-  top: 1vw;
-  left: 1vw;
-  opacity: 0;
-}
-.menu-toogle {
-  position:absolute; /*Lo posicionamos absolutamente para poder darle una posición y poder moverlo según el menú esté abierto o cerrado*/
-  width: 10vw;
-  height: 10vw;
-  line-height:1.1;
-  text-align:center;
-  top: 1vw; /*Le damos una posición top y left en donde queramos que se encuentre la hamburguesa del menú*/
-  left: 1vw; 
-  border-radius:3px;
-  background-color: #142b25;
-  transition: all .7s ease; /*Añadimos una transición para que realice un desplazamineto suave*/
-  z-index:10;
-}
-/*Añadimos la haburguesa y le damos unos estilos*/
-.menu-toogle::before {
-  content:"☰";
-  font-size:10vw;
-  color:white;
-}
-.checkbox:checked ~ nav {
-  left:0px; /*Le quitamos el left negativo para que el menú vuelva a su posición original*/
-}
-@media screen and (min-width: 600px) and (max-width: 1000px) {
-=======
 @media screen and (min-width: 480px) and (max-width: 1000px) {
->>>>>>> origin/master:css/style.css
   nav{
     width: 50vw;
     top: 84px;
@@ -258,8 +217,6 @@ footer>div h2, footer>p{
   }
   nav ul li a {
     font-size: 5vw;
-    margin-top:25px;
-    margin-bottom:25px;
   }
   nav ul li.item{
     display: none;
@@ -286,9 +243,6 @@ footer>div h2, footer>p{
     float: left;
   }
 }
-<<<<<<< HEAD:style.css
-@media screen and (min-width: 1000px) and (max-width: 1600px) {
-=======
 @media screen and (min-width: 1000px) and (max-width: 1400px) {
   header{
     height: 80px;
@@ -299,7 +253,6 @@ footer>div h2, footer>p{
   header>label{
     display:none;
   }
->>>>>>> origin/master:css/style.css
   nav{
     top: 80px;
     left:0vw;
@@ -312,8 +265,6 @@ footer>div h2, footer>p{
   }
   nav ul li a {
     font-size: 1.2em;
-    margin-top:25px;
-    margin-bottom:25px;
   }
   nav ul li.info, nav ul li.item {
     display: none;
@@ -331,35 +282,16 @@ footer>div h2, footer>p{
     display: inline-block;
     vertical-align: middle;
     margin-left: 5px;
-<<<<<<< HEAD:style.css
-    width: 20%;
-=======
     width: auto;
     height: 80px;
->>>>>>> origin/master:css/style.css
   }
   .headerinfo {
     display: inline-block;
     vertical-align: middle;
   }
-  .title, .subtitle{
+  .headerinfo h1, .headerinfo p{
     display: block;
   }
-<<<<<<< HEAD:style.css
-  main{
-    margin-left: 21vw;
-  }
-	.checkbox{
-		display: none;
-	}
-	.menu-toogle{
-		display:none;
-	}
-	.articulos{
-		left:20vw;
-	}
-=======
->>>>>>> origin/master:css/style.css
   .headerlinks{
     display: block;
     width: 26vw;
@@ -374,6 +306,9 @@ footer>div h2, footer>p{
     color: lightgrey;
     font-weight: bold;
   }
+  .headerlinks a:hover{
+    background-color: #3e3e3e;
+  }
   .headerlinks a i{
     float: left;
   }
@@ -381,9 +316,6 @@ footer>div h2, footer>p{
     margin: 1px;
   }
 }
-<<<<<<< HEAD:style.css
-@media screen and (min-width: 1600px) {
-=======
 @media screen and (min-width: 1400px) {
   header{
     height: 100px;
@@ -394,7 +326,6 @@ footer>div h2, footer>p{
   header>label{
     display:none;
   }  
->>>>>>> origin/master:css/style.css
   nav{
     top: 100px;
     left:0vw;
@@ -412,8 +343,6 @@ footer>div h2, footer>p{
   }
   nav ul li a {
     font-size: 1.2em;
-    margin-top:25px;
-    margin-bottom:25px;
   }
   nav ul li.info, nav ul li.item {
     display: none;
@@ -426,50 +355,32 @@ footer>div h2, footer>p{
     display: inline-block;
     vertical-align: middle;
     margin-left: 10px;
-<<<<<<< HEAD:style.css
-    width: 10%;
-=======
     width: auto;
     height: 100%;
->>>>>>> origin/master:css/style.css
   }
   .headerinfo {
     display: inline-block;
     vertical-align: middle;
   }
-  .title, .subtitle{
+  .headerinfo h1, .headerinfo p{
     display: block;
-  }
-  main{
-    margin-left: 15vw;
-  }
-  .checkbox{
-    display: none;
-  }
-  .menu-toogle{
-    display:none;
-  }
-  .articulos{
-    left:20vw;
   }
   .headerlinks{
     display: block;
-<<<<<<< HEAD:style.css
-    width: 14vw;
-    margin-top: 1.5vh;
-=======
     width: 16vw;
     margin-top: 10px;
->>>>>>> origin/master:css/style.css
   }
   .headerlinks a{
     display: inline-block;
     padding: 3px;
     border: 1px solid lightgrey;
-    width: 6vw;
+    width: 7vw;
     margin: 3px;
     color: lightgrey;
     font-weight: bold;
+  }
+  .headerlinks a:hover{
+    background-color: #3e3e3e;
   }
   .headerinfo h1, .headerinfo p{
     margin: 10px;

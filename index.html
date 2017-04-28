@@ -5,40 +5,55 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>ComentaTuVida</title>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" href="style.css"/>
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<script type="text/javascript" src="js/functions.js"></script>
 	</head>
 	<body>
 		<header>
-			<input type="checkbox" class="checkbox" id="menu-toogle"/>
-			<label for="menu-toogle" class="menu-toogle"></label>
+			<input type="checkbox" id="menu-toogle"/>
+			<label for="menu-toogle"></label>
 			<nav>
 				<ul>
 					<li><input type="text" name="buscar" value="" placeholder="Busqueda"/></li>
-					<li class="item"><a href="pagina1.html"><i class="material-icons">person</i>Login</a></li>
-					<li class="item"><a href="pagina2.html"><i class="material-icons">person_add</i>Registro</a></li>
-					<li class="item"><a href="pagina3.html"><i class="material-icons">cancel</i>LogOut</a></li>
-					<li class="item"><a href="pagina4.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
+					<span class="loggedout">
+						<li class="item"><a href="login.html"><i class="material-icons">person</i>Login</a></li>
+						<li class="item"><a href="registro.html"><i class="material-icons">person_add</i>Registro</a></li>
+					</span>
+					<span class="loggedin">
+						<li class="item"><a href="#"><i class="material-icons">cancel</i>LogOut</a></li>
+						<li class="item"><a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
+					</span>
 					<li class="info">
-						<h1>ComentaTuVida</h1>
+						<a href="index.html"><h1>ComentaTuVida</h1></a>
 						<p>La web de comentarios lider.</p>
 					</li>
-					<li class="cat"><a href="pagina5.html">Inicio</a></li>
-					<li class="cat"><a href="pagina5.html">Eventos</a></li>
-					<li class="cat"><a href="pagina5.html">Retos</a></li>
+					<li class="cat active"><a href="index.html">Inicio</a></li>
+					<li class="cat"><a href="buscar.html">Buscar</a></li>
+					<li class="cat loggedin"><a href="#">Perfil</a></li>
+					<li class="cat"><a href="#">Categoria 1</a></li>
+					<li class="cat"><a href="#">Categoria 2</a></li>
+					<li class="cat"><a href="#">Categoria 3</a></li>
+					<li class="cat"><a href="#">Categoria 4</a></li>
 				</ul>
 			</nav>
 			<div class="logo">
-				<img src="logo.png">
+				<a href="index.html"><img src="img/logo.png"></a>
 			</div>
 			<div class="headerinfo">
-				<h1 class="title">ComentaTuVida</h1>
-				<p class="subtitle">La web de comentarios lider.</p>
+				<a href="index.html"><h1>ComentaTuVida</h1></a>
+				<p>La web de comentarios lider.</p>
 			</div>
 			<div class="headerlinks">
-				<a href="pagina1.html"><i class="material-icons">person</i>Login</a>
-				<a href="pagina2.html"><i class="material-icons">person_add</i>Registro</a>
-				<a href="pagina3.html"><i class="material-icons">cancel</i>LogOut</a>
-				<a href="pagina4.html"><i class="material-icons">add_circle</i>Nuevo</a>
+				<span class="loggedout">
+					<a href="login.html"><i class="material-icons">person</i>Login</a>
+					<a href="registro.html"><i class="material-icons">person_add</i>Registro</a>
+				</span>
+				<span class="loggedin">
+					<a href="#"><i class="material-icons">cancel</i>LogOut</a>
+					<a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a>
+				</span>
 			</div>
 		</header>
 		<main>
@@ -68,28 +83,97 @@
 					</article>
 				</template>
 			</section>
-			<section class="c-section">
+			<section>
 				<h2>Últimos comentarios</h2>
 				<div class="comments">
-				</div>
-				<template>
 					<div>
-						<a href=""><h3></h3></a>
-						<b></b>
-						<p></p>
-						<i class="autor"></i> - <i class="fecha"></i>
+						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
 					</div>
-				</template>
+					<div>
+						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+					<div>
+						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
+						<b>Titulo del comentario</b>
+						<p>Comentario</p>
+						<i>Autor</i> - <i>Fecha</i>
+					</div>
+				</div>
 			</section>
 		</main>
 		<footer>
-			<p>Footer de la pagina</p>
+			<div>
+				<h2>Información de contacto</h2>
+				<p>
+					<b>Nombre</b>: ComentaTuVida<br>
+					<b>Telefono</b>: 695847362<br>
+					<b>E-mail</b>: comentatuvida@comentala.com<br>
+					<b>Dirección</b>: Calle falsa, 123, Madrid, España
+				</p>
+			</div>
+			<div>
+				<h2>Enlaces útiles</h2>
+				<p>
+					<a href="acerca.html">Acerca de ComentaTuVida</a>
+					<a href="legal.html">Informacion legal</a>
+					<a href="privacidad.html">Politica de privacidad</a>
+					<a href="cookies.html">Politica de cookies</a>
+				</p>
+			</div>
+			<p><b>&copy;2017 - ComentaTuVida</b></p>
 		</footer>
 		<script>
-			var nEntradas = 6;
+			var numEntradas = 6;
 			var nPagina = 1;
-			var nComentarios = 10;
-			ajaxGetRequest("rest/entrada/?u="+nEntradas, function(res){
+			ajaxGetRequest("rest/get/entrada.php?u="+numEntradas, function(res){
 				let entradas = document.querySelectorAll('.a-container article')
 				for (let entrada of entradas){
 					entrada.remove();
@@ -116,44 +200,26 @@
 				} else {
 					document.querySelector('.a-pagination').innerHTML = '<b>'+nPagina+' de 12</b><a href="#">&gt;</a><a href="#">&gt;&gt;</a>';
 				}
+				if (sessionStorage.getItem("login")){
+					var items = document.querySelectorAll(".loggedin");
+					for (var item of items){
+						item.style.display = "block";
+					}
+					var items = document.querySelectorAll(".loggedout");
+					for (var item of items){
+						item.style.display = "none";
+					}
+				} else {
+					var items = document.querySelectorAll(".loggedout");
+					for (var item of items){
+						item.style.display = "none";
+					}
+					var items = document.querySelectorAll(".loggedin");
+					for (var item of items){
+						item.style.display = "block";
+					}
+				}
 			});
-			ajaxGetRequest("rest/comentario/?u="+nComentarios, function(res){
-				let comentarios = document.querySelectorAll('.comments div')
-				for (let comentario of comentarios){
-					comentario.remove();
-				}
-				let plantilla = document.querySelector('.c-section>template');
-				for (let fila of res.FILAS){
-					let elem = plantilla.content.cloneNode(true);
-					elem.querySelector('a').href='http://localhost/practica2/entradas.html?id='+fila.id+"#comments";
-					elem.querySelector('h3').innerHTML=fila.titulo; //ToDo: Aqui titulo del post
-					elem.querySelector('b').innerHTML=fila.titulo;
-					elem.querySelector('p').innerHTML=fila.texto;
-					elem.querySelector('i.autor').innerHTML=fila.login;
-					elem.querySelector('i.fecha').innerHTML=fila.fecha;
-	                document.querySelector('.comments').appendChild(elem);
-				}
-			});
-			//sessionStorage.setItem("login", "false");
-			if (sessionStorage.getItem("login") == "true"){
-				var items = document.querySelectorAll(".loggedin");
-				for (var item of items){
-					item.style.display = "block";
-				}
-				var items = document.querySelectorAll(".loggedout");
-				for (var item of items){
-					item.style.display = "none";
-				}
-			} else {
-				var items = document.querySelectorAll(".loggedin");
-				for (var item of items){
-					item.style.display = "none";
-				}
-				var items = document.querySelectorAll(".loggedout");
-				for (var item of items){
-					item.style.display = "block";
-				}
-			}
 		</script>
 	</body>
 </html>
