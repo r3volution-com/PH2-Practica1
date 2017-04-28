@@ -171,49 +171,51 @@
 			var numEntradas = 6;
 			var nPagina = 1;
 			ajaxGetRequest("rest/entrada/?u="+numEntradas, function(res){
-				let entradas = document.querySelectorAll('.a-container article')
-				for (let entrada of entradas){
-					entrada.remove();
-				}
-				let plantilla = document.querySelector('.articles template');
-				for (let fila of res.FILAS){
-					let elem = plantilla.content.cloneNode(true);
-                
-	                elem.querySelector('.aheader a').href = 'entradas.html?id='+fila.id;
-	                elem.querySelector('.aheader img').src = 'fotos/'+fila.fichero;
-	                elem.querySelector('.aheader img').alt = 'fotos/'+fila.nombre;
-	                elem.querySelector('.abody a').href = 'entradas.html?id='+fila.id;
-					elem.querySelector('.abody h3').innerHTML = fila.nombre;
-					elem.querySelector('.abody .descripcion').innerHTML = fila.descripcion;
-					elem.querySelector('.afooter .autor').innerHTML = fila.login;
-					elem.querySelector('.afooter .numcom').innerHTML = fila.ncomentarios;
-					elem.querySelector('.afooter .numfotos').innerHTML = fila.nfotos;
-					elem.querySelector('.afooter .fecha').innerHTML = fila.fecha;
+				if (res.RESULTADO == "ok"){
+					let entradas = document.querySelectorAll('.a-container article')
+					for (let entrada of entradas){
+						entrada.remove();
+					}
+					let plantilla = document.querySelector('.articles template');
+					for (let fila of res.FILAS){
+						let elem = plantilla.content.cloneNode(true);
+	                
+		                elem.querySelector('.aheader a').href = 'entradas.html?id='+fila.id;
+		                elem.querySelector('.aheader img').src = 'fotos/'+fila.fichero;
+		                elem.querySelector('.aheader img').alt = 'fotos/'+fila.nombre;
+		                elem.querySelector('.abody a').href = 'entradas.html?id='+fila.id;
+						elem.querySelector('.abody h3').innerHTML = fila.nombre;
+						elem.querySelector('.abody .descripcion').innerHTML = fila.descripcion;
+						elem.querySelector('.afooter .autor').innerHTML = fila.login;
+						elem.querySelector('.afooter .numcom').innerHTML = fila.ncomentarios;
+						elem.querySelector('.afooter .numfotos').innerHTML = fila.nfotos;
+						elem.querySelector('.afooter .fecha').innerHTML = fila.fecha;
 
-	                document.querySelector('.a-container').appendChild(elem);
-				}
-				if (nPagina > 1){
-					document.querySelector('.a-pagination').innerHTML = '<a href="#">&lt;&lt;</a><a href="#">&lt;</a><b>'+nPagina+' de 12</b><a href="#">&gt;</a><a href="#">&gt;&gt;</a>';
-				} else {
-					document.querySelector('.a-pagination').innerHTML = '<b>'+nPagina+' de 12</b><a href="#">&gt;</a><a href="#">&gt;&gt;</a>';
-				}
-				if (sessionStorage.getItem("login")){
-					var items = document.querySelectorAll(".loggedin");
-					for (var item of items){
-						item.style.display = "block";
+		                document.querySelector('.a-container').appendChild(elem);
 					}
-					var items = document.querySelectorAll(".loggedout");
-					for (var item of items){
-						item.style.display = "none";
+					if (nPagina > 1){
+						document.querySelector('.a-pagination').innerHTML = '<a href="#">&lt;&lt;</a><a href="#">&lt;</a><b>'+nPagina+' de 12</b><a href="#">&gt;</a><a href="#">&gt;&gt;</a>';
+					} else {
+						document.querySelector('.a-pagination').innerHTML = '<b>'+nPagina+' de 12</b><a href="#">&gt;</a><a href="#">&gt;&gt;</a>';
 					}
-				} else {
-					var items = document.querySelectorAll(".loggedout");
-					for (var item of items){
-						item.style.display = "none";
-					}
-					var items = document.querySelectorAll(".loggedin");
-					for (var item of items){
-						item.style.display = "block";
+					if (sessionStorage.getItem("login")){
+						var items = document.querySelectorAll(".loggedin");
+						for (var item of items){
+							item.style.display = "block";
+						}
+						var items = document.querySelectorAll(".loggedout");
+						for (var item of items){
+							item.style.display = "none";
+						}
+					} else {
+						var items = document.querySelectorAll(".loggedout");
+						for (var item of items){
+							item.style.display = "none";
+						}
+						var items = document.querySelectorAll(".loggedin");
+						for (var item of items){
+							item.style.display = "block";
+						}
 					}
 				}
 			});
