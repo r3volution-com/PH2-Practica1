@@ -5,12 +5,64 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>ComentaTuVida</title>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" href="style.css"/>
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/entrada.css">
+		<script type="text/javascript">
+
+			var algo = 1;
+			var algo = ["una", "dos", "tres"];
+
+			var fun = function (param1, param2) {
+
+			};
+
+			fun();
+
+			var obj = {
+				nombre: "mario",
+				edad: 24,
+				direccion: "calle",
+				array: algo,
+				myfun: function (){
+
+				}
+
+			};
+			obj.fun()
+			for (i=0; i<algo.length; i++) algo[i];
+		
+
+			function suma(callback){
+				callback();
+			}
+
+			suma(function(){
+				alert("1");
+			})
+
+			alert("texto");
+			document.getElementById("label1").innerHTML = "algo"
+			document.getElementById("menu-toogle")
+
+			console.log(obj);
+
+			addEventListener("label1", "click", function(){
+				alert("bla");
+			});
+			
+			document.querySelector(".label1")
+		</script>
 	</head>
 	<body>
 		<header>
+<<<<<<< HEAD
 			<input type="checkbox" class="checkbox" id="menu-toogle"/>
 			<label for="menu-toogle" class="menu-toogle"></label>
+=======
+			<input type="checkbox" id="menu-toogle"/>
+			<label for="menu-toogle" id="label1"></label>
+>>>>>>> origin/master
 			<nav>
 				<ul>
 					<li><input type="text" name="buscar" value="" placeholder="Busqueda"/></li>
@@ -19,7 +71,7 @@
 					<li class="item"><a href="pagina3.html"><i class="material-icons">cancel</i>LogOut</a></li>
 					<li class="item"><a href="pagina4.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
 					<li class="info">
-						<h1>ComentaTuVida</h1>
+						<a href="index.html"><h1>ComentaTuVida</h1></a>
 						<p>La web de comentarios lider.</p>
 					</li>
 					<li class="cat"><a href="pagina5.html">Inicio</a></li>
@@ -28,11 +80,16 @@
 				</ul>
 			</nav>
 			<div class="logo">
-				<img src="logo.png">
+				<a href="index.html"><img src="img/logo.png"></a>
 			</div>
 			<div class="headerinfo">
+<<<<<<< HEAD
 				<h1 class="title">ComentaTuVida</h1>
 				<p class="subtitle">La web de comentarios lider.</p>
+=======
+				<a href="index.html"><h1>ComentaTuVida</h1></a>
+				<p>La web de comentarios lider.</p>
+>>>>>>> origin/master
 			</div>
 			<div class="headerlinks">
 				<a href="pagina1.html"><i class="material-icons">person</i>Login</a>
@@ -41,5 +98,134 @@
 				<a href="pagina4.html"><i class="material-icons">add_circle</i>Nuevo</a>
 			</div>
 		</header>
+<<<<<<< HEAD
 </body>
+=======
+		<main>
+			<section class="articles">
+				<article>
+					<h2>Articulo 1</h2>
+					<div class="aheader">
+						<a href="entrada.html"><img src="fotos/foto.jpg" alt="Entrada"/></a>
+					</div>
+					<div class="abody">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
+					</div>
+					<div class="afooter">
+						<p>Autor</p>
+						<p>NumCom</p>
+						<p>Fecha</p>
+						<p>NumFotos</p>
+					</div>
+				</article>
+				<article class="imagenes">
+					<h2>Imagenes</h2>
+					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
+					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
+					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
+					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
+					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
+					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
+					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
+					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
+					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
+					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
+				</article>
+				<article>
+					<a id="comentarios"><h2>Comentarios</h2></a>
+					<div class="comments">
+						<div>
+							<b>Titulo del comentario</b>
+							<p>Comentario</p>
+							<i>Autor</i> - <i>Fecha</i>
+							<a href="">Responder</a>
+						</div>
+						<div>
+							<b>Titulo del comentario</b>
+							<p>Comentario</p>
+							<i>Autor</i> - <i>Fecha</i>
+							<a href="">Responder</a>
+						</div>
+						<div>
+							<b>Titulo del comentario</b>
+							<p>Comentario</p>
+							<i>Autor</i> - <i>Fecha</i>
+							<a href="">Responder</a>
+						</div>
+						<div>
+							<b>Titulo del comentario</b>
+							<p>Comentario</p>
+							<i>Autor</i> - <i>Fecha</i>
+							<a href="">Responder</a>
+						</div>
+						<div>
+							<b>Titulo del comentario</b>
+							<p>Comentario</p>
+							<i>Autor</i> - <i>Fecha</i>
+							<a href="">Responder</a>
+						</div>
+						<div>
+							<b>Titulo del comentario</b>
+							<p>Comentario</p>
+							<i>Autor</i> - <i>Fecha</i>
+							<a href="">Responder</a>
+						</div>
+						<div>
+							<b>Titulo del comentario</b>
+							<p>Comentario</p>
+							<i>Autor</i> - <i>Fecha</i>
+							<a href="">Responder</a>
+						</div>
+						<div>
+							<b>Titulo del comentario</b>
+							<p>Comentario</p>
+							<i>Autor</i> - <i>Fecha</i>
+							<a href="">Responder</a>
+						</div>
+						<div>
+							<b>Titulo del comentario</b>
+							<p>Comentario</p>
+							<i>Autor</i> - <i>Fecha</i>
+							<a href="">Responder</a>
+						</div>
+						<div>
+							<b>Titulo del comentario</b>
+							<p>Comentario</p>
+							<i>Autor</i> - <i>Fecha</i>
+							<a href="">Responder</a>
+						</div>
+					</div>
+					<div class="center">
+						<h3>Añadir comentario</h3>
+						<input type="text" name="title" placeholder="Titulo" required maxlength="50" />
+						<textarea name="comment" placeholder="Comentario" required>
+						</textarea>
+						<input type="submit" value="Enviar"/>
+					</div>
+				</article>
+			</section>
+		</main>
+		<footer>
+			<div>
+				<h2>Información de contacto</h2>
+				<p>
+					<b>Nombre</b>: ComentaTuVida<br>
+					<b>Telefono</b>: 695847362<br>
+					<b>E-mail</b>: comentatuvida@comentala.com<br>
+					<b>Dirección</b>: Calle falsa, 123, Madrid, España
+				</p>
+			</div>
+			<div>
+				<h2>Enlaces útiles</h2>
+				<p>
+					<a href="acerca.html">Acerca de ComentaTuVida</a>
+					<a href="legal.html">Informacion legal</a>
+					<a href="privacidad.html">Politica de privacidad</a>
+					<a href="cookies.html">Politica de cookies</a>
+				</p>
+			</div>
+			<p><b>&copy;2017 - ComentaTuVida</b></p>
+		</footer>
+	</body>
+>>>>>>> origin/master
 </html>

@@ -1,0 +1,92 @@
+/*Cuerpo*/
+section {
+	text-align: center;
+}
+section h2{
+  text-align: center;
+}
+article{
+  text-align: left;
+  background-color: white;
+  margin: 10px;
+  box-shadow: 3px 3px 3px black;
+  display: inline-block;
+  width: 90%;
+  vertical-align: top;
+}
+article img {
+  width: 100%;
+  max-height: 40vw;
+}
+article .abody{
+  padding: 5px;
+}
+article .afooter{
+  margin: 5px;
+  border-top: 1px solid lightgrey;
+}
+article .afooter p {
+  display: inline-block;
+  width: 49%;
+  margin: 5px 0px;
+}
+article .afooter p:nth-child(even){
+  text-align: right;
+}
+article.imagenes>div {
+	width: 32%;
+	display: inline-block;
+}
+article.imagenes>div>p{
+	margin-top: 5px;
+}
+.imagenes{
+	text-align: center;
+}
+section .comments {
+  height: 60vh;
+  min-height: 200px;
+  width: 95%;
+  overflow-y: auto;
+  background-color: #888888;
+  margin: auto;
+}
+section .comments>div{
+  background-color: #CCCCCC;
+  padding: 5px;
+  margin: 5px;
+  box-shadow: 2px 2px 2px black;
+}
+section .comments>div b{
+  
+}
+section .comments>div>a{
+	float: right;
+}
+section input[type="text"], section textarea, section input[type="submit"]{
+	width: 90%;
+	border:0px;
+	border-bottom: 1px solid #222222;
+	padding: 5px 5px;
+	margin-bottom: 2px;
+	font-size: 1.1em;
+}
+section input[type="text"]:hover, section textarea:hover{
+  padding-left: 4px;
+  border-left: 1px solid grey;
+}
+section input[type="text"]:focus, section textarea:focus{
+  outline: none;
+  border-bottom: 2px solid #333333;
+  margin-bottom: 1px;
+}
+.center{
+	margin: 20px 0px;
+	text-align: center;
+}
+@media screen and (min-width: 1000px){
+  article{
+    width: 70%;
+  margin-left: 25%;
+  }
+}

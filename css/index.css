@@ -1,0 +1,102 @@
+
+/*Cuerpo*/
+section>h2{
+  text-align: center;
+}
+section .comments {
+  height: 20vh;
+  min-height: 200px;
+  width: 95%;
+  overflow-y: auto;
+  background-color: #888888;
+  margin: auto;
+}
+section .comments>div{
+  background-color: #CCCCCC;
+  padding: 5px;
+  margin: 5px;
+  box-shadow: 2px 2px 2px black;
+}
+section.articles{
+  text-align: center;
+}
+section .comments a, section .comments b{
+background-color: transparent;
+display: block;
+word-wrap: break-word;
+text-overflow: ellipsis;
+}
+article{
+  text-align: left;
+  background-color: white;
+  margin: 10px;
+  box-shadow: 3px 3px 3px black;
+  display: inline-block;
+  width: 90%;
+  vertical-align: top;
+}
+article img {
+  width: 100%;
+  max-height: 40vw;
+}
+article .abody{
+  padding: 5px;
+}
+article .afooter{
+  margin: 5px;
+  border-top: 1px solid lightgrey;
+}
+article .afooter p {
+  display: inline-block;
+  width: 49%;
+  margin: 5px 0px;
+}
+article .afooter p:nth-child(even){
+  text-align: right;
+}
+section>div {
+  text-align: center;
+}
+section>div a{
+  display: inline-block;
+  border-radius: 5px;
+  padding: 3px;
+  background-color: lightgrey;
+}
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+  section>article{
+    width: 45%;
+  }
+}
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
+  main{
+    margin-left: 21vw;
+  }
+  .articulos{
+    left:20vw;
+  }
+  section>article{
+    width: 45%;
+  }
+  section .comments>div{
+    display: inline-block;
+    width: 49%;
+    margin: 3px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  main{
+    margin-left: 15vw;
+  }
+  section>article{
+    width: 30%;
+  }
+  section .comments>div{
+    display: inline-block;
+    width: 49%;
+    margin: 3px;
+  }
+  .articulos{
+    left:20vw;
+  }
+}
