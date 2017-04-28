@@ -31,15 +31,12 @@
 					</li>
 					<li class="cat active"><a href="index.html">Inicio</a></li>
 					<li class="cat"><a href="buscar.html">Buscar</a></li>
-					<li class="cat loggedin"><a href="#">Perfil</a></li>
-					<li class="cat"><a href="#">Categoria 1</a></li>
-					<li class="cat"><a href="#">Categoria 2</a></li>
-					<li class="cat"><a href="#">Categoria 3</a></li>
-					<li class="cat"><a href="#">Categoria 4</a></li>
+					<li class="cat"><a href="pagina5.html">Eventos</a></li>
+					<li class="cat"><a href="pagina5.html">Retos</a></li>
 				</ul>
 			</nav>
 			<div class="logo">
-				<a href="index.html"><img src="img/logo.png"></a>
+				<a href="index.html"><img src="img/logo.png" alt="Logo"></a>
 			</div>
 			<div class="headerinfo">
 				<a href="index.html"><h1>ComentaTuVida</h1></a>
@@ -173,7 +170,7 @@
 		<script>
 			var numEntradas = 6;
 			var nPagina = 1;
-			ajaxGetRequest("rest/get/entrada.php?u="+numEntradas, function(res){
+			ajaxGetRequest("rest/entrada/?u="+numEntradas, function(res){
 				let entradas = document.querySelectorAll('.a-container article')
 				for (let entrada of entradas){
 					entrada.remove();
@@ -182,10 +179,10 @@
 				for (let fila of res.FILAS){
 					let elem = plantilla.content.cloneNode(true);
                 
-	                elem.querySelector('.aheader a').href = 'http://localhost/practica2/entradas.html?id='+fila.id;
-	                elem.querySelector('.aheader img').src = 'http://localhost/practica2/fotos/'+fila.fichero;
-	                elem.querySelector('.aheader img').alt = 'http://localhost/practica2/fotos/'+fila.nombre;
-	                elem.querySelector('.abody a').href = 'http://localhost/practica2/entradas.html?id='+fila.id;
+	                elem.querySelector('.aheader a').href = 'entradas.html?id='+fila.id;
+	                elem.querySelector('.aheader img').src = 'fotos/'+fila.fichero;
+	                elem.querySelector('.aheader img').alt = 'fotos/'+fila.nombre;
+	                elem.querySelector('.abody a').href = 'entradas.html?id='+fila.id;
 					elem.querySelector('.abody h3').innerHTML = fila.nombre;
 					elem.querySelector('.abody .descripcion').innerHTML = fila.descripcion;
 					elem.querySelector('.afooter .autor').innerHTML = fila.login;
