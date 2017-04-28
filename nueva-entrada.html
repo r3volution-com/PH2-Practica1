@@ -132,8 +132,12 @@
 		      			function sendForm(event, form){
 		      				event.preventDefault();
 		      				ajaxPostRequest(new FormData (form), 'rest/entrada/', function(response){
-		      					console.log(response);
-		      					openNav();
+		      					if(response.RESULTADO=='ok'){
+		      						openNav();
+		      					}
+		      					else{
+		      						console.log(response);	
+		      					}
 		      				});
 		      			}
 		      			function request(){

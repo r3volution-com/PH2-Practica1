@@ -4,7 +4,7 @@ RewriteEngine On
 # Ruta completa desde htdocs hasta la carpeta "rest".
 # Si el path hasta la carpeta es C:\xampp\htdocs\practica2\rest,
 # habría que poner lo siguiente: RewriteBase /practica2/rest/
-RewriteBase /practica2/rest/
+RewriteBase /PH2-practica1/rest/
 
 # Con el valor 307 en las reglas de abajo se redirigen todas las
 # peticiones, tanto las peticiones GET como las POST
