@@ -1,97 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>ComentaTuVida</title>
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/style.css"/>
-		<link rel="stylesheet" type="text/css" href="css/nueva-entrada.css">
-	</head>
-	<body>
-		<header>
-			<input type="checkbox" id="menu-toogle"/>
-			<label for="menu-toogle"></label>
-			<nav>
-				<ul>
-					<li><input type="text" name="buscar" value="" placeholder="Busqueda"/></li>
-					<li class="item"><a href="login.html"><i class="material-icons">person</i>Login</a></li>
-					<li class="item"><a href="registro.html"><i class="material-icons">person_add</i>Registro</a></li>
-					<li class="item"><a href="#"><i class="material-icons">cancel</i>LogOut</a></li>
-					<li class="item"><a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
-					<li class="info">
-						<a href="index.html"><h1>ComentaTuVida</h1></a>
-						<p>La web de comentarios lider.</p>
-					</li>
-					<li class="cat active"><a href="index.html">Inicio</a></li>
-					<li class="cat"><a href="buscar.html">Buscar</a></li>
-					<li class="cat"><a href="pagina5.html">Eventos</a></li>
-					<li class="cat"><a href="pagina5.html">Retos</a></li>
-				</ul>
-			</nav>
-			<div class="logo">
-				<a href="index.html"><img src="img/logo.png" alt="Logo"></a>
-			</div>
-			<div class="headerinfo">
-				<a href="index.html"><h1>ComentaTuVida</h1></a>
-				<p>La web de comentarios lider.</p>
-			</div>
-			<div class="headerlinks">
-				<a href="login.html"><i class="material-icons">person</i>Login</a>
-				<a href="registro.html"><i class="material-icons">person_add</i>Registro</a>
-				<a href="#"><i class="material-icons">cancel</i>LogOut</a>
-				<a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a>
-			</div>
-		</header>
-		<main>
-			<section>
-				<h2>Nueva entrada</h2>
-				<form>
-					<label for="title">Titulo</label>
-					<input type="text" name="title" id="title" maxlength="200" required autofocus placeholder="Titulo"/>
-					<label for="text">Descripción</label>
-					<input type="text" name="text" id="text" required placeholder="Texto"/>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>ComentaTuVida</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="css/nueva-entrada.css">
+</head>
+<body>
+	<header>
+		<input type="checkbox" id="menu-toogle"/>
+		<label for="menu-toogle"></label>
+		<nav>
+			<ul>
+				<li><input type="text" name="buscar" value="" placeholder="Busqueda"/></li>
+				<li class="item"><a href="login.html"><i class="material-icons">person</i>Login</a></li>
+				<li class="item"><a href="registro.html"><i class="material-icons">person_add</i>Registro</a></li>
+				<li class="item"><a href="#"><i class="material-icons">cancel</i>LogOut</a></li>
+				<li class="item"><a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
+				<li class="info">
+					<a href="index.html"><h1>ComentaTuVida</h1></a>
+					<p>La web de comentarios lider.</p>
+				</li>
+				<li class="cat active"><a href="index.html">Inicio</a></li>
+				<li class="cat"><a href="buscar.html">Buscar</a></li>
+				<li class="cat"><a href="pagina5.html">Eventos</a></li>
+				<li class="cat"><a href="pagina5.html">Retos</a></li>
+			</ul>
+		</nav>
+		<div class="logo">
+			<a href="index.html"><img src="img/logo.png" alt="Logo"></a>
+		</div>
+		<div class="headerinfo">
+			<a href="index.html"><h1>ComentaTuVida</h1></a>
+			<p>La web de comentarios lider.</p>
+		</div>
+		<div class="headerlinks">
+			<a href="login.html"><i class="material-icons">person</i>Login</a>
+			<a href="registro.html"><i class="material-icons">person_add</i>Registro</a>
+			<a href="#"><i class="material-icons">cancel</i>LogOut</a>
+			<a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a>
+		</div>
+	</header>
+	<main>
+		<section>
+			<h2>Nueva entrada</h2>
+			<!--<form>-->
+			<label for="title">Titulo</label>
+			<input type="text" name="title" id="title" maxlength="200" required autofocus placeholder="Titulo"/>
+			<label for="text">Descripción</label>
+			<input type="text" name="text" id="text" required placeholder="Texto"/>
 					<!--
 					<label for="text">Fotos</label>
 					<input type="file" accept="image/*"/>
 					<input type="submit" value="Publicar"/>
 				</form>
-				-->
-				<Button>Añadir Entrada</button>
-					<div>
-						<template>
-							<div class="tempFoto">
-								<p>Foto</p>
-								<input type="file" name="file" onchange="actualizarFoto(this);" required>
-								<p><img onclick="secFoto(this);" src="mobile-first-index.png" alt="foto"></p>
-								<p><textarea  cols="30" rows="5" required></textarea></p>
-								<p><button onclick="borrarFoto(this);">Borrar Foto</button></p>
-							</div>
-						</template>
-					</div>
-			</section>
-		</main>
-		<footer>
-			<div>
-				<h2>Información de contacto</h2>
-				<p>
-					<b>Nombre</b>: ComentaTuVida<br>
-					<b>Telefono</b>: 695847362<br>
-					<b>E-mail</b>: comentatuvida@comentala.com<br>
-					<b>Dirección</b>: Calle falsa, 123, Madrid, España
-				</p>
-			</div>
-			<div>
-				<h2>Enlaces útiles</h2>
-				<p>
-					<a href="acerca.html">Acerca de ComentaTuVida</a>
-					<a href="legal.html">Informacion legal</a>
-					<a href="privacidad.html">Politica de privacidad</a>
-					<a href="cookies.html">Politica de cookies</a>
-				</p>
-			</div>
-			<p><b>&copy;2017 - ComentaTuVida</b></p>
-		</footer>
-	</body>
-</html>
+			-->
+			<p id="Fotos">
+			</p>
+			<button onclick="anadirFoto();">Añadir Foto</button>
+			<Button>Añadir Entrada</button>
+				<div>
+					<template id="template-foto">
+						<div class="tempFoto">
+							<p>Foto</p>
+							<input type="file" name="file" class="file" accept="image/x-png,image/gif,image/jpeg" required>
+							<output id="list"></output>
+							<p><textarea  cols="30" rows="5" required></textarea></p>
+							<p><button onclick="borrarFoto(this);">Borrar Foto</button></p>
+						</div>
+					</template>
+				</div>
+				<script>
+					function anadirFoto(){
+						var temp = document.getElementById("template-foto");
+						var Foto = document.getElementById("Fotos");
+						Foto.appendChild(temp.content.cloneNode(true));
+						Foto.querySelector('.file').addEventListener('change', handleFileSelect, false);
+					}
+					
+					function borrarFoto(exp){
+						let div = exp.parentNode.parentNode;
+						div.remove();
+					}
+					function handleFileSelect(evt) {
+						console.log(evt);
+   					 var files = evt.target.files; // FileList object
+    					// Loop through the FileList and render image files as thumbnails.
+    					for (var i = 0, f; f = files[i]; i++) {
+      					// Only process image files.
+      						if (!f.type.match('image.*')) {
+      							continue;
+      						}
+      						var reader = new FileReader();
+      					// Closure to capture the file information.
+      						reader.onload = (function(theFile) {
+      						return function(e) {
+          					// Render thumbnail.
+          						document.getElementById('list').innerHTML= ['<img class="thumb" src="', e.target.result,
+          						'" title="', escape(theFile.name), '"/>'].join('');
+     							};
+  							})(f);
+      						// Read in the image file as a data URL.
+     					reader.readAsDataURL(f);
+  						}
+  					}
+  				</script>
+  			</section>
+  		</main>
+  		<footer>
+  			<div>
+  				<h2>Información de contacto</h2>
+  				<p>
+  					<b>Nombre</b>: ComentaTuVida<br>
+  					<b>Telefono</b>: 695847362<br>
+  					<b>E-mail</b>: comentatuvida@comentala.com<br>
+  					<b>Dirección</b>: Calle falsa, 123, Madrid, España
+  				</p>
+  			</div>
+  			<div>
+  				<h2>Enlaces útiles</h2>
+  				<p>
+  					<a href="acerca.html">Acerca de ComentaTuVida</a>
+  					<a href="legal.html">Informacion legal</a>
+  					<a href="privacidad.html">Politica de privacidad</a>
+  					<a href="cookies.html">Politica de cookies</a>
+  				</p>
+  			</div>
+  			<p><b>&copy;2017 - ComentaTuVida</b></p>
+  		</footer>
+  	</body>
+  </html>

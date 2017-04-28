@@ -3,7 +3,8 @@ main{
 }
 main>section:first-child{
 	background-color: white;
-	width: 30%;
+	width: 60%;
+	min-height: 65vh;
 	min-width: 300px;
 	margin: auto;
 	text-align: center;
@@ -68,6 +69,19 @@ section>div a{
   border-radius: 5px;
   padding: 3px;
   background-color: lightgrey;
+}
+output{
+	display: block;
+	text-align: center;
+	width: 100%;
+}
+.thumb{
+	width: 50%;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+}
+textarea{
+	width:30vw;
 }
 @media screen and (min-width: 480px) and (max-width: 1000px){
 	main>section{
