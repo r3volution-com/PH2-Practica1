@@ -24,3 +24,24 @@ function ajaxPostRequest(data, action, callback) {
   	xhttp.open("POST", action, true);
   	xhttp.send(data);
 }
+function isLoggedIn(){
+  if (sessionStorage.getItem("login")){
+    var items = document.querySelectorAll(".loggedin");
+    for (var item of items){
+      item.style.display = "block";
+    }
+    var items = document.querySelectorAll(".loggedout");
+    for (var item of items){
+      item.style.display = "none";
+    }
+  } else {
+    var items = document.querySelectorAll(".loggedout");
+    for (var item of items){
+      item.style.display = "none";
+    }
+    var items = document.querySelectorAll(".loggedin");
+    for (var item of items){
+      item.style.display = "block";
+    }
+  }
+}

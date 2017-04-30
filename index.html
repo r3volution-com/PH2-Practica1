@@ -80,7 +80,7 @@
 					</article>
 				</template>
 			</section>
-			<section>
+			<section class="c-container">
 				<h2>Últimos comentarios</h2>
 				<div class="comments">
 					<div>
@@ -89,61 +89,15 @@
 						<p>Comentario</p>
 						<i>Autor</i> - <i>Fecha</i>
 					</div>
-					<div>
-						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
-						<b>Titulo del comentario</b>
-						<p>Comentario</p>
-						<i>Autor</i> - <i>Fecha</i>
-					</div>
-					<div>
-						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
-						<b>Titulo del comentario</b>
-						<p>Comentario</p>
-						<i>Autor</i> - <i>Fecha</i>
-					</div>
-					<div>
-						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
-						<b>Titulo del comentario</b>
-						<p>Comentario</p>
-						<i>Autor</i> - <i>Fecha</i>
-					</div>
-					<div>
-						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
-						<b>Titulo del comentario</b>
-						<p>Comentario</p>
-						<i>Autor</i> - <i>Fecha</i>
-					</div>
-					<div>
-						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
-						<b>Titulo del comentario</b>
-						<p>Comentario</p>
-						<i>Autor</i> - <i>Fecha</i>
-					</div>
-					<div>
-						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
-						<b>Titulo del comentario</b>
-						<p>Comentario</p>
-						<i>Autor</i> - <i>Fecha</i>
-					</div>
-					<div>
-						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
-						<b>Titulo del comentario</b>
-						<p>Comentario</p>
-						<i>Autor</i> - <i>Fecha</i>
-					</div>
-					<div>
-						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
-						<b>Titulo del comentario</b>
-						<p>Comentario</p>
-						<i>Autor</i> - <i>Fecha</i>
-					</div>
-					<div>
-						<a href="entrada.html#comentarios"><h2>Titulo del post</h2></a>
-						<b>Titulo del comentario</b>
-						<p>Comentario</p>
-						<i>Autor</i> - <i>Fecha</i>
-					</div>
 				</div>
+				<template>
+					<div>
+						<a href=""><h3></h3></a>
+						<b></b>
+						<p></p>
+						<i class="c-author"></i> - <i class="c-date"></i>
+					</div>
+				</template>
 			</section>
 		</main>
 		<footer>
@@ -170,6 +124,7 @@
 		<script>
 			var numEntradas = 6;
 			var nPagina = 1;
+			isLoggedIn();
 			ajaxGetRequest("rest/entrada/?u="+numEntradas, function(res){
 				if (res.RESULTADO == "ok"){
 					let entradas = document.querySelectorAll('.a-container article')
@@ -198,24 +153,27 @@
 					} else {
 						document.querySelector('.a-pagination').innerHTML = '<b>'+nPagina+' de 12</b><a href="#">&gt;</a><a href="#">&gt;&gt;</a>';
 					}
-					if (sessionStorage.getItem("login")){
-						var items = document.querySelectorAll(".loggedin");
-						for (var item of items){
-							item.style.display = "block";
-						}
-						var items = document.querySelectorAll(".loggedout");
-						for (var item of items){
-							item.style.display = "none";
-						}
-					} else {
-						var items = document.querySelectorAll(".loggedout");
-						for (var item of items){
-							item.style.display = "none";
-						}
-						var items = document.querySelectorAll(".loggedin");
-						for (var item of items){
-							item.style.display = "block";
-						}
+				}
+			});
+			ajaxGetRequest("rest/comentario/?u="+numEntradas, function(res){
+				console.log(res);
+				if (res.RESULTADO == "ok"){
+					let entradas = document.querySelectorAll('.comments div')
+					for (let entrada of entradas){
+						entrada.remove();
+					}
+					let plantilla = document.querySelector('.c-container template');
+					for (let fila of res.FILAS){
+						let elem = plantilla.content.cloneNode(true);
+
+		                elem.querySelector('a').href = 'entradas.html?id='+fila.id;
+						elem.querySelector('h3').innerHTML = fila.nombre_entrada;
+						elem.querySelector('b').innerHTML = fila.titulo;
+						elem.querySelector('p').innerHTML = fila.texto;
+						elem.querySelector('.c-author').innerHTML = fila.login;
+						elem.querySelector('.c-date').innerHTML = fila.fecha;
+
+						document.querySelector('.comments').appendChild(elem);
 					}
 				}
 			});

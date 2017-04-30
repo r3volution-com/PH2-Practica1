@@ -80,6 +80,7 @@ section>.a-pagination a{
   }
   section .comments>div{
     display: inline-block;
+    vertical-align: top;
     width: 49%;
     margin: 3px;
   }
@@ -88,11 +89,12 @@ section>.a-pagination a{
   main{
     margin-left: 15vw;
   }
-  section>article{
+  .a-container>article{
     width: 30%;
   }
   section .comments>div{
     display: inline-block;
+    vertical-align: top;
     width: 49%;
     margin: 3px;
   }
