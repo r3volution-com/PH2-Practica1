@@ -62,7 +62,7 @@
 				<label for="descripcion">Descripción</label>
 				<textarea name="descripcion" id="descripcion" required placeholder="Texto"></textarea>
 				<p id="aviso">
-					La foto no puede pesar mas de 500Kb
+					Advertencia la foto no debe pesar mas de 500Kb
 				</p>
 				<p id="Fotos">
 				</p>
@@ -73,13 +73,17 @@
 							<div class="tempFoto">
 								<h4>Foto</h4>
 								<input type="file" name="file" class="file" accept="image/x-png,image/gif,image/jpeg" required>
-								<output class="list"></output>
+								<output class="list" onclick="clickFoto(this);"></output>
+								<input type="hidden" name="valido" class="validacion" value="false"/>
 								<p><textarea  cols="30" rows="5" required></textarea></p>
 								<p><button onclick="borrarFoto(this);">Borrar Foto</button></p>
 							</div>
 						</template>
 					</div>
 					<script>
+					function clickFoto(evt){
+						evt.parentNode.querySelector('.file').click();
+					}
 						function anadirFoto(){
 							var temp = document.getElementById("template-foto");
 							var Foto = document.getElementById("Fotos");
@@ -92,6 +96,7 @@
 							div.remove();
 						}
 						function handleFileSelect(evt) {
+							var valido=true;
 							var x;
 		   					var files = evt.target.files; // FileList object
 		    					// Loop through the FileList and render image files as thumbnails.
@@ -99,20 +104,19 @@
 	      						if (!f.type.match('image.*')) {
 	      							continue;
 	      						}
-	      						console.log(files[i].size/1024);
 	      						if(files[i].size/1024<500){
-	      							console.log("hfdanfjenw j");
 	      							//evt.target.parentNode.querySelector('.file').value= "";
 	      							//alert("El archivo es demasiado grande, debe pesar menos de 500KB");
 	      							//x = evt.target.parentNode.querySelector('img');
 	      							//x.parentNode.removeChild(x);
 	      							revelar(evt.target);
-	      							document.getElementById("aviso").innerHTML="La foto no puede pesar mas de 500Kb";
+	      							document.getElementById("aviso").innerHTML="Advertencia la foto no debe pesar mas de 500Kb";
+	      							evt.target.parentNode.querySelector(".validacion").value="true";
 		      					}
 		      					else{
-		      						console.log(evt.target.parentNode);
-		      						document.getElementById("aviso").innerHTML="AVISO La imagen pesa mas de 500Kb";
+		      						document.getElementById("aviso").innerHTML="AVISO LA IMAGEN PESA MAS DE 500KB";
 		      						ocultar(evt.target);
+		      						evt.target.parentNode.querySelector(".validacion").value="false";
 		      					}	
 	      						var reader = new FileReader();
 	      							// Closure to capture the file information.
@@ -132,11 +136,10 @@
 		      				document.getElementById('overlay').style.width = "100%";
 		      			}
 		      			function sendForm(event, form){
+
 		      				event.preventDefault();
-		      				console.log(sessionStorage.getItem("login"));
 		      				var obj = JSON.parse(sessionStorage.getItem("login"));
 		      				var clave = obj.clave;
-		      				console.log(clave);
 		      				var nombre = document.getElementById("nombre").value;
 		      				var descripcion = document.getElementById("descripcion").value;
 		      				var login = obj.login;
@@ -147,7 +150,6 @@
 		      							let img = foto.querySelector("input.file");
 		      							let text = foto.querySelector("textarea");
 		      							ajaxPostRequest("login="+login+"&id_entrada="+response.id+"&texto="+text+"&foto="+img.files[0],"rest/foto/",function(response){
-		      								console.log(response);
 		      							},clave);
 
 		      						}
@@ -160,11 +162,10 @@
 
 		      			}
 		      			function ocultar(ejm){
-		      				console.log(ejm.parentNode.querySelector('.error'));
-		      				document.querySelector('#aviso').style.borderColor="red";
+		      				document.querySelector('#aviso').style.backgroundColor="red";
 		      			}
 		      			function revelar(ejm){
-		      				document.querySelector('#aviso').style.borderColor="black";
+		      				document.querySelector('#aviso').style.backgroundColor="transparent";
 		      			}
 
 	  				</script>
