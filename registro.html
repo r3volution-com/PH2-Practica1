@@ -57,10 +57,12 @@
 					<label for="name">Nombre completo</label>
 					<input type="text" name="name" id="name" required autofocus placeholder="Nombre completo"/>
 					<label for="username">Usuario</label>
+					<b class="errname">El usuario especificado ya esta registrado</b>
 					<input type="text" name="username" id="username" required pattern="^[a-zA-Z][a-zA-Z0-9]{1,19}" placeholder="Usuario"/>
 					<label for="password">Contraseña</label>
 					<input type="password" name="password" id="password" required pattern="^[a-zA-Z0-9_\-]{1,20}" placeholder="Contraseña"/>
 					<label for="password2">Repetir Contraseña</label>
+					<b class="errpwd">Las contraseñas no coinciden</b>
 					<input type="password" name="password2" id="password2" required pattern="^[a-zA-Z0-9_\-]{1,20}" placeholder="Contraseña"/>
 					<label for="email">E-mail</label>
 					<input type="email" name="email" id="email" required placeholder="E-mail"/>
@@ -68,6 +70,12 @@
 				</form>
 			</section>
 		</main>
+		<div id="overlay" class="overlay">
+		 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<div class="overlay-content">
+		    
+			</div>
+		</div>
 		<footer>
 			<div>
 				<h2>Información de contacto</h2>
@@ -91,6 +99,22 @@
 		</footer>
 		<script>
 			isLoggedIn();
+			document.querySelector("#username").addEventListener("blur", function(event){
+				ajaxGetRequest("rest/login/"+event.target.value, function (res){
+					if (res.RESULTADO == "ok" && res.DISPONIBLE == "true"){
+						event.target.parentNode.querySelector(".errname").style.display="none";
+					} else {
+						event.target.parentNode.querySelector(".errname").style.display="block";
+					}
+				});
+			});
+			document.querySelector("#password2").addEventListener("blur", function(event){
+				if (event.target.value == document.querySelector("#password").value){
+					event.target.parentNode.querySelector(".errpwd").style.display="none";
+				} else {
+					event.target.parentNode.querySelector(".errpwd").style.display="block";
+				}
+			});
 			document.querySelector("form").addEventListener("submit", function(event){
 				event.preventDefault();
 				let name = document.querySelector("#name").value;
@@ -98,13 +122,13 @@
 				let pwd = document.querySelector("#password").value;
 				let pwd2 = document.querySelector("#password2").value;
 				let email = document.querySelector("#email").value;
-				ajaxPostRequest("login="+login+"&pwd="+pwd, "rest/login/", function(res){
+				ajaxPostRequest("login="+login+"&pwd="+pwd+"&pwd2="+pwd2+"&nombre="+name+"&email="+email, "rest/usuario/", function(res){
 					if (res.RESULTADO == "ok"){
-						sessionStorage.setItem("login", JSON.stringify(res));
-						document.querySelector("#overlay .overlay-content").innerHTML = "Login correcto, tu última conexión ha sido el "+res.ultimo_acceso;
+						document.querySelector("#overlay .overlay-content").innerHTML = "Te has registrado correctamente, seras redirigido al login.";
 						openNav();
+						console.log(document.querySelector("#overlay .overlay-content"));
 					} else {
-						document.querySelector("#overlay .overlay-content").innerHTML = "No coinciden las credenciales";
+						document.querySelector("#overlay .overlay-content").innerHTML = "Ha ocurrido un error";
 						openNav();
 					}
 				});

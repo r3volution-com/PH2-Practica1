@@ -26,24 +26,26 @@ function ajaxPostRequest(data, action, callback) {
   	xhttp.send(data);
 }
 function isJson(str) {
-    if (str == "") return false;
-    try {
-        var json = JSON.parse(str);
-        if (json == null) return false;
-    } catch (e) {
-        return false;
-    }
-    return true;
+  if (str == "") return false;
+  try {
+      var json = JSON.parse(str);
+      if (json == null) return false;
+  } catch (e) {
+      return false;
+  }
+  return true;
 }
 function openNav() {
-    document.getElementById("overlay").style.width = "100%";
+  console.log("OPEN");
+  document.getElementById("overlay").style.width = "100%";
 }
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
 function closeNav() {
-    document.getElementById("overlay").style.width = "0%";
-      console.log(sessionStorage.getItem("login"));
-    if (isJson(sessionStorage.getItem("login"))) location.href="index.html";
+  console.log("CLOSE");
+  document.getElementById("overlay").style.width = "0%";
+  if (isJson(sessionStorage.getItem("login"))) location.href="index.html";
+  else location.href="login.html";
 }
 function isLoggedIn(){
   if (isJson(sessionStorage.getItem("login")) && JSON.parse(sessionStorage.getItem("login")).RESULTADO == "ok"){
