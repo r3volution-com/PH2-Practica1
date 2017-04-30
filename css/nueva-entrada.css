@@ -75,6 +75,30 @@ output{
 	text-align: center;
 	width: 100%;
 }
+#volver{
+	margin: auto;
+	display: block;
+	position: absolute;
+	top:40%;
+	left:50%;
+	font-size: 4vh;
+	width:30vh;
+	height: 20vh;
+	color:#000000;
+
+}
+#overlay{
+	text-align: center;
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+	background-color: rgba(93, 93, 124, 0.6);
+    transition: 0.5s;
+    overflow-x: hidden;
+}
 .thumb{
 	width: 50%;
     border: 1px solid #000;
