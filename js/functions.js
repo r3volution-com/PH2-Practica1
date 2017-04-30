@@ -234,69 +234,69 @@ function loadComments(nComments){
     }
   });
 }
-        function titulo(){ 
-          var cosa=document.getElementById("title").value;
-          var title = false;
-          if(cosa != ""){
-            title = true;
-          }
-          return title;
-        }
-        function texto(){ 
-          var cosa=document.getElementById("text").value;
-          var text = false;
-          if(cosa != ""){
-            text = true;
-          }
-          return text;
-        }
-        function autor(){ 
-          var cosa=document.getElementById("autor").value;
-          var author = false;
-          if(cosa != ""){
-            author = true;
-          }
-          return author;
-        }
-        function desde(){
-          var cosa=document.getElementById("datepicker").value;
-          var since = false;
-          if(cosa != ""){
-            since = true;
-          }
-          return since;
-        }         
-        function hasta(){ 
-          var cosa=document.getElementById("datepicker2").value;
-          var to = false;
-          if(cosa != ""){
-            to = true;
-          }
-          return to;
-        }
-      function consulta(){
-        var string1 = "";
-        if(titulo()== true){
-          string1 = string1+"n="+document.getElementById("title").value;
-        }
-        if(texto()==true){
-          if(string1 !=""){string1= string1+"&";}
-          string1 = string1+"d="+document.getElementById("text").value;
-        }
-        if(autor()==true){
-          if(string1 !=""){string1= string1+"&";}
-          string1 = string1+"l="+document.getElementById("autor").value;
-        }
-        if(desde()==true){
-          if(string1 !=""){string1= string1+"&";}
-          string1 = string1+"ff="+document.getElementById("datepicker").value;
-        }
-        if(hasta()==true){
-          if(string1 !=""){string1= string1+"&";}
-          string1 = string1+"fi="+document.getElementById("datepicker2").value;
-        }
-        return string1;
-      }
+function titulo(){ 
+    var cosa=document.getElementById("title").value;
+    var title = false;
+    if(cosa != ""){
+      title = true;
+    }
+    return title;
+  }
+  function texto(){ 
+    var cosa=document.getElementById("text").value;
+    var text = false;
+    if(cosa != ""){
+      text = true;
+    }
+    return text;
+  }
+  function autor(){ 
+    var cosa=document.getElementById("autor").value;
+    var author = false;
+    if(cosa != ""){
+      author = true;
+    }
+    return author;
+  }
+  function desde(){
+    var cosa=document.getElementById("datepicker").value;
+    var since = false;
+    if(cosa != ""){
+      since = true;
+    }
+    return since;
+  }         
+  function hasta(){ 
+    var cosa=document.getElementById("datepicker2").value;
+    var to = false;
+    if(cosa != ""){
+      to = true;
+    }
+    return to;
+  }
+function consulta(){
+  var string1 = "";
+  if(titulo()== true){
+    string1 = string1+"n="+document.getElementById("title").value;
+  }
+  if(texto()==true){
+    if(string1 !=""){string1= string1+"&";}
+    string1 = string1+"d="+document.getElementById("text").value;
+  }
+  if(autor()==true){
+    if(string1 !=""){string1= string1+"&";}
+    string1 = string1+"l="+document.getElementById("autor").value;
+  }
+  if(desde()==true){
+    if(string1 !=""){string1= string1+"&";}
+    string1 = string1+"ff="+document.getElementById("datepicker").value;
+  }
+  if(hasta()==true){
+    if(string1 !=""){string1= string1+"&";}
+    string1 = string1+"fi="+document.getElementById("datepicker2").value;
+  }
+  return string1;
+}
       
       function clickFoto(evt){
             evt.parentNode.querySelector('.file').click();
