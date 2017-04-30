@@ -49,18 +49,12 @@ section input[type="submit"]{
 section input[type="submit"]:hover{
 	background-color: #aaaaaa;
 }
-nav .cat{
-	display: none;
-}
 @media screen and (min-width: 480px) and (max-width: 1000px){
 	main>section{
 		margin-top: 5vh;
 	}
 }
 @media screen and (min-width: 1000px){
-	nav{
-		display: none;
-	}
 	main>section{
 		margin-top: 10vh;
 	}
