@@ -122,60 +122,14 @@
 			<p><b>&copy;2017 - ComentaTuVida</b></p>
 		</footer>
 		<script>
-			var numEntradas = 6;
-			var nPagina = 1;
+			var nPag = 1;
+			if (location.hash.indexOf("nPag=") > -1){
+				var nP = location.hash.split("=")[1];
+				if (parseInt(nP) > 0) nPag = parseInt(nP);
+			}
 			isLoggedIn();
-			ajaxGetRequest("rest/entrada/?u="+numEntradas, function(res){
-				if (res.RESULTADO == "ok"){
-					let entradas = document.querySelectorAll('.a-container article')
-					for (let entrada of entradas){
-						entrada.remove();
-					}
-					let plantilla = document.querySelector('.articles template');
-					for (let fila of res.FILAS){
-						let elem = plantilla.content.cloneNode(true);
-	                
-		                elem.querySelector('.aheader a').href = 'entradas.html?id='+fila.id;
-		                elem.querySelector('.aheader img').src = 'fotos/'+fila.fichero;
-		                elem.querySelector('.aheader img').alt = 'fotos/'+fila.nombre;
-		                elem.querySelector('.abody a').href = 'entradas.html?id='+fila.id;
-						elem.querySelector('.abody h3').innerHTML = fila.nombre;
-						elem.querySelector('.abody .descripcion').innerHTML = fila.descripcion;
-						elem.querySelector('.afooter .autor').innerHTML = fila.login;
-						elem.querySelector('.afooter .numcom').innerHTML = fila.ncomentarios;
-						elem.querySelector('.afooter .numfotos').innerHTML = fila.nfotos;
-						elem.querySelector('.afooter .fecha').innerHTML = fila.fecha;
-
-		                document.querySelector('.a-container').appendChild(elem);
-					}
-					if (nPagina > 1){
-						document.querySelector('.a-pagination').innerHTML = '<a href="#!">&lt;&lt;</a><a href="#!">&lt;</a><b>'+nPagina+'</b><a href="#">&gt;</a><a href="#">&gt;&gt;</a>';
-					} else {
-						document.querySelector('.a-pagination').innerHTML = '<b>'+nPagina+'</b><a href="#">&gt;</a><a href="#">&gt;&gt;</a>';
-					}
-				}
-			});
-			ajaxGetRequest("rest/comentario/?u="+numEntradas, function(res){
-				if (res.RESULTADO == "ok"){
-					let entradas = document.querySelectorAll('.comments div')
-					for (let entrada of entradas){
-						entrada.remove();
-					}
-					let plantilla = document.querySelector('.c-container template');
-					for (let fila of res.FILAS){
-						let elem = plantilla.content.cloneNode(true);
-
-		                elem.querySelector('a').href = 'entradas.html?id='+fila.id;
-						elem.querySelector('h3').innerHTML = fila.nombre_entrada;
-						elem.querySelector('b').innerHTML = fila.titulo;
-						elem.querySelector('p').innerHTML = fila.texto;
-						elem.querySelector('.c-author').innerHTML = fila.login;
-						elem.querySelector('.c-date').innerHTML = fila.fecha;
-
-						document.querySelector('.comments').appendChild(elem);
-					}
-				}
-			});
+			loadEntries(6, nPag);
+			loadComments(10);
 		</script>
 	</body>
 </html>
