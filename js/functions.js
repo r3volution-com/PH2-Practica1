@@ -59,11 +59,13 @@ function logout(){
   sessionStorage.setItem("login", "");
   location.href=location.href;
 }
-function loadEntries(nEntradas, nPagina){
+function loadEntries(nEntradas, nPagina, extra){
   ajaxGetRequest("rest/entrada/", function(res){
     if (res.RESULTADO == "ok"){
-      var nPaginas = parseInt((res.FILAS.length / nEntradas).toFixed());
-      ajaxGetRequest("rest/entrada/?pag="+(nPagina-1)+"&lpag="+nEntradas, function(res){
+      var nPaginas = Math.floor((res.FILAS.length / nEntradas))+1;
+      var action = "rest/entrada/?pag="+(nPagina-1)+"&lpag="+nEntradas;
+      if (typeof extra != "undefined") action += "&"+extra;
+      ajaxGetRequest(action, function(res){
         if (res.RESULTADO == "ok"){
           let entradas = document.querySelectorAll('.a-container article')
           for (let entrada of entradas){
