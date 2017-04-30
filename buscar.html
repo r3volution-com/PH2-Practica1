@@ -8,6 +8,9 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" type="text/css" href="css/search.css">
+		<link rel="stylesheet" type="text/css" href="css/pikaday.css">
+		<script src="js/functions.js"> </script>
+		<script src="js/pikaday.js"> </script>
 	</head>
 	<body>
 		<header>
@@ -55,10 +58,29 @@
 					<label for="title">Autor</label>
 					<input type="text" name="autor" id="autor" required placeholder="Autor"/>
 					<label for="title">Fecha</label>
-					<input type="date" name="desde" id="desde" required/> - <input type="date" name="hasta" id="hasta" required/>
+					<input type="text" name="desde" id="datepicker" required placeholder="Desde" /> - <input type="text" name="hasta" id="datepicker2" required placeholder="Hasta" />
 					<input type="submit" value="Buscar"/>
 				</form>
 			</section>
+			<script>
+   	 			var picker = new Pikaday({
+				    field: document.getElementById('datepicker'),
+					format: 'DD-MM-YYYY',
+			        onSelect: function() {
+		            	this.getMoment().format('Do-MMMM-YYYY');
+				    }
+			    });
+
+   	 			var picker = new Pikaday({
+			        field: document.getElementById('datepicker2'),
+			    	format: 'DD-MM-YYYY',
+			        onSelect: function() {
+			            this.getMoment().format('Do-MMMM-YYYY');
+			        }
+			    });
+
+
+			</script>
 			<section class="articles">
 				<h2>Resultados de la busqueda</h2>
 				<article>
