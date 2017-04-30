@@ -234,4 +234,153 @@ function loadComments(nComments){
     }
   });
 }
+        function titulo(){ 
+          var cosa=document.getElementById("title").value;
+          var title = false;
+          if(cosa != ""){
+            title = true;
+          }
+          return title;
+        }
+        function texto(){ 
+          var cosa=document.getElementById("text").value;
+          var text = false;
+          if(cosa != ""){
+            text = true;
+          }
+          return text;
+        }
+        function autor(){ 
+          var cosa=document.getElementById("autor").value;
+          var author = false;
+          if(cosa != ""){
+            author = true;
+          }
+          return author;
+        }
+        function desde(){
+          var cosa=document.getElementById("datepicker").value;
+          var since = false;
+          if(cosa != ""){
+            since = true;
+          }
+          return since;
+        }         
+        function hasta(){ 
+          var cosa=document.getElementById("datepicker2").value;
+          var to = false;
+          if(cosa != ""){
+            to = true;
+          }
+          return to;
+        }
+      function consulta(){
+        var string1 = "";
+        if(titulo()== true){
+          string1 = string1+"n="+document.getElementById("title").value;
+        }
+        if(texto()==true){
+          if(string1 !=""){string1= string1+"&";}
+          string1 = string1+"d="+document.getElementById("text").value;
+        }
+        if(autor()==true){
+          if(string1 !=""){string1= string1+"&";}
+          string1 = string1+"l="+document.getElementById("autor").value;
+        }
+        if(desde()==true){
+          if(string1 !=""){string1= string1+"&";}
+          string1 = string1+"ff="+document.getElementById("datepicker").value;
+        }
+        if(hasta()==true){
+          if(string1 !=""){string1= string1+"&";}
+          string1 = string1+"fi="+document.getElementById("datepicker2").value;
+        }
+        return string1;
+      }
       
+      function clickFoto(evt){
+            evt.parentNode.querySelector('.file').click();
+          }
+            function anadirFoto(){
+              var temp = document.getElementById("template-foto");
+              var Foto = document.getElementById("Fotos");
+              Foto.appendChild(temp.content.cloneNode(true));
+              Foto.querySelector('.file').addEventListener('change', handleFileSelect, false);
+            }
+            
+            function borrarFoto(exp){
+              let div = exp.parentNode.parentNode;
+              div.remove();
+            }
+            function handleFileSelect(evt) {
+              var valido=true;
+              var x;
+                var files = evt.target.files; // FileList object
+                  // Loop through the FileList and render image files as thumbnails.
+                for (var i = 0, f; f = files[i]; i++) {
+                    if (!f.type.match('image.*')) {
+                      continue;
+                    }
+                    if(files[i].size/1024<500){
+                      //evt.target.parentNode.querySelector('.file').value= "";
+                      //alert("El archivo es demasiado grande, debe pesar menos de 500KB");
+                      //x = evt.target.parentNode.querySelector('img');
+                      //x.parentNode.removeChild(x);
+                      revelar(evt.target);
+                      document.getElementById("aviso").innerHTML="Advertencia la foto no debe pesar mas de 500Kb";
+                      evt.target.parentNode.querySelector(".validacion").value="true";
+                    }
+                    else{
+                      document.getElementById("aviso").innerHTML="AVISO LA IMAGEN PESA MAS DE 500KB";
+                      ocultar(evt.target);
+                      evt.target.parentNode.querySelector(".validacion").value="false";
+                    } 
+                    var reader = new FileReader();
+                      // Closure to capture the file information.
+                      reader.onload = (function(theFile) {
+                        return function(e) {
+                          // Render thumbnail.
+                          evt.target.parentNode.querySelector('.list').innerHTML= ['<img class="thumb" src="', e.target.result,
+                          '" title="', escape(theFile.name), '"/>'].join('');
+
+                        };
+                      })(f);
+                    // Read in the image file as a data URL.
+                    reader.readAsDataURL(f);
+                  }
+                }
+                function openNav(){
+                  document.getElementById('overlay').style.width = "100%";
+                }
+                function sendForm(event, form){
+
+                  event.preventDefault();
+                  var obj = JSON.parse(sessionStorage.getItem("login"));
+                  var clave = obj.clave;
+                  var nombre = document.getElementById("nombre").value;
+                  var descripcion = document.getElementById("descripcion").value;
+                  var login = obj.login;
+                  ajaxPostRequest("nombre="+nombre+"&descripcion="+descripcion+"&login="+login, 'rest/entrada/', function(response){
+                    if(response.RESULTADO=='ok'){
+                      var fotos = document.querySelectorAll(".tempFoto");
+                      for(let foto of fotos){
+                        let img = foto.querySelector("input.file");
+                        let text = foto.querySelector("textarea");
+                        ajaxPostRequest("login="+login+"&id_entrada="+response.id+"&texto="+text+"&foto="+img.files[0],"rest/foto/",function(response){
+                        },clave);
+
+                      }
+                      //openNav();
+                    }
+                    else{
+                      console.log(response);  
+                    }
+                  },clave);
+
+                }
+                function ocultar(ejm){
+                  document.querySelector('#aviso').style.backgroundColor="red";
+                }
+                function revelar(ejm){
+                  document.querySelector('#aviso').style.backgroundColor="transparent";
+                }
