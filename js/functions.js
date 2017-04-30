@@ -45,3 +45,7 @@ function isLoggedIn(){
     }
   }
 }
+function logout(){
+  sessionStorage.setItem("login", false);
+  location.href=location.href;
+}
