@@ -8,23 +8,26 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" type="text/css" href="css/entrada.css">
-		<script type="text/javascript">
-		</script>
+		<script src="js/functions.js"> </script>
 	</head>
 	<body>
 		<header>
 			<input type="checkbox" id="menu-toogle"/>
-			<label for="menu-toogle" id="label1"></label>
+			<label for="menu-toogle"></label>
 			<nav>
 				<ul>
 					<li><input type="text" name="buscar" value="" placeholder="Busqueda" id="search-bar"/></li>
-					<li class="item"><a href="login.html"><i class="material-icons">person</i>Login</a></li>
-					<li class="item"><a href="registro.html"><i class="material-icons">person_add</i>Registro</a></li>
-					<li class="item"><a href="#"><i class="material-icons">cancel</i>LogOut</a></li>
-					<li class="item"><a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
-					<li class="info">
-						<a href="index.html"><h1>ComentaTuVida</h1></a>
-						<p>La web de comentarios lider.</p>
+					<li>
+						<ul>
+							<li class="item loggedout"><a href="login.html"><i class="material-icons">person</i>Login</a></li>
+							<li class="item loggedout"><a href="registro.html"><i class="material-icons">person_add</i>Registro</a></li>
+							<li class="item loggedin"><a href="#!" onclick="logout();"><i class="material-icons">cancel</i>LogOut</a></li>
+							<li class="item loggedin"><a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
+							<li class="info">
+								<a href="index.html"><h1>ComentaTuVida</h1></a>
+								<p>La web de comentarios lider.</p>
+							</li>
+						</ul>
 					</li>
 					<li class="cat active"><a href="index.html">Inicio</a></li>
 					<li class="cat"><a href="buscar.html">Buscar</a></li>
@@ -40,10 +43,11 @@
 				<p>La web de comentarios lider.</p>
 			</div>
 			<div class="headerlinks">
-				<a href="login.html"><i class="material-icons">person</i>Login</a>
-				<a href="registro.html"><i class="material-icons">person_add</i>Registro</a>
-				<a href="#"><i class="material-icons">cancel</i>LogOut</a>
-				<a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a>
+				<a class="loggedout" href="login.html"><i class="material-icons">person</i>Login</a>
+				<a class="loggedout" href="registro.html"><i class="material-icons">person_add</i>Registro</a>
+				<a class="loggedin" href="#!" onclick="logout();"><i class="material-icons">cancel</i>LogOut</a>
+				<a class="loggedin" href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a>
+				</span>
 			</div>
 		</header>
 		<main>
@@ -171,5 +175,8 @@
 			</div>
 			<p><b>&copy;2017 - ComentaTuVida</b></p>
 		</footer>
+		<script>
+			isLoggedIn();
+		</script>
 	</body>
 </html>

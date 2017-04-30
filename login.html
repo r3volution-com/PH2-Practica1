@@ -8,6 +8,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" type="text/css" href="css/login.css">
+		<script type="text/javascript" src="js/functions.js"></script>
 	</head>
 	<body>
 		<header>
@@ -16,13 +17,17 @@
 			<nav>
 				<ul>
 					<li><input type="text" name="buscar" value="" placeholder="Busqueda" id="search-bar"/></li>
-					<li class="item active"><a href="login.html"><i class="material-icons">person</i>Login</a></li>
-					<li class="item"><a href="registro.html"><i class="material-icons">person_add</i>Registro</a></li>
-					<li class="item"><a href="#"><i class="material-icons">cancel</i>LogOut</a></li>
-					<li class="item"><a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
-					<li class="info">
-						<a href="index.html"><h1>ComentaTuVida</h1></a>
-						<p>La web de comentarios lider.</p>
+					<li>
+						<ul>
+							<li class="item loggedout"><a href="login.html"><i class="material-icons">person</i>Login</a></li>
+							<li class="item loggedout"><a href="registro.html"><i class="material-icons">person_add</i>Registro</a></li>
+							<li class="item loggedin"><a href="#!" onclick="logout();"><i class="material-icons">cancel</i>LogOut</a></li>
+							<li class="item loggedin"><a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
+							<li class="info">
+								<a href="index.html"><h1>ComentaTuVida</h1></a>
+								<p>La web de comentarios lider.</p>
+							</li>
+						</ul>
 					</li>
 					<li class="cat active"><a href="index.html">Inicio</a></li>
 					<li class="cat"><a href="buscar.html">Buscar</a></li>
@@ -38,10 +43,11 @@
 				<p>La web de comentarios lider.</p>
 			</div>
 			<div class="headerlinks">
-				<a href="login.html" class="active"><i class="material-icons">person</i>Login</a>
-				<a href="registro.html"><i class="material-icons">person_add</i>Registro</a>
-				<a href="#"><i class="material-icons">cancel</i>LogOut</a>
-				<a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a>
+				<a class="loggedout" href="login.html"><i class="material-icons">person</i>Login</a>
+				<a class="loggedout" href="registro.html"><i class="material-icons">person_add</i>Registro</a>
+				<a class="loggedin" href="#!" onclick="logout();"><i class="material-icons">cancel</i>LogOut</a>
+				<a class="loggedin" href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a>
+				</span>
 			</div>
 		</header>
 		<main>
@@ -54,6 +60,12 @@
 					<input type="password" name="password" id="password" required placeholder="Contraseña" />
 					<input type="submit" value="Enviar"/>
 				</form>
+				<div id="overlay" class="overlay">
+				 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+					<div class="overlay-content">
+				    
+					</div>
+				</div>
 			</section>
 		</main>
 		<footer>
@@ -77,5 +89,23 @@
 			</div>
 			<p><b>&copy;2017 - ComentaTuVida</b></p>
 		</footer>
+		<script>
+			isLoggedIn();
+			document.querySelector("form").addEventListener("submit", function(event){
+				event.preventDefault();
+				let login = document.querySelector("#username").value;
+				let pwd = document.querySelector("#password").value;
+				ajaxPostRequest("login="+login+"&pwd="+pwd, "rest/login/", function(res){
+					if (res.RESULTADO == "ok"){
+						sessionStorage.setItem("login", JSON.stringify(res));
+						document.querySelector("#overlay .overlay-content").innerHTML = "Login correcto, tu última conexión ha sido el "+res.ultimo_acceso;
+						openNav();
+					} else {
+						document.querySelector("#overlay .overlay-content").innerHTML = "No coinciden las credenciales";
+						openNav();
+					}
+				});
+			});
+		</script>
 	</body>
 </html>

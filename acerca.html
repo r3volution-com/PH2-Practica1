@@ -11,18 +11,22 @@
 	</head>
 	<body>
 		<header>
-			<input type="checkbox" class="checkbox" id="menu-toogle"/>
-			<label for="menu-toogle" class="menu-toogle"></label>
+			<input type="checkbox" id="menu-toogle"/>
+			<label for="menu-toogle"></label>
 			<nav>
 				<ul>
 					<li><input type="text" name="buscar" value="" placeholder="Busqueda" id="search-bar"/></li>
-					<li class="item"><a href="pagina1.html"><i class="material-icons">person</i>Login</a></li>
-					<li class="item"><a href="pagina2.html"><i class="material-icons">person_add</i>Registro</a></li>
-					<li class="item"><a href="pagina3.html"><i class="material-icons">cancel</i>LogOut</a></li>
-					<li class="item"><a href="pagina4.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
-					<li class="info">
-						<h1>ComentaTuVida</h1>
-						<p>La web de comentarios lider.</p>
+					<li>
+						<ul>
+							<li class="item loggedout"><a href="login.html"><i class="material-icons">person</i>Login</a></li>
+							<li class="item loggedout"><a href="registro.html"><i class="material-icons">person_add</i>Registro</a></li>
+							<li class="item loggedin"><a href="#!" onclick="logout();"><i class="material-icons">cancel</i>LogOut</a></li>
+							<li class="item loggedin"><a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
+							<li class="info">
+								<a href="index.html"><h1>ComentaTuVida</h1></a>
+								<p>La web de comentarios lider.</p>
+							</li>
+						</ul>
 					</li>
 					<li class="cat active"><a href="index.html">Inicio</a></li>
 					<li class="cat"><a href="buscar.html">Buscar</a></li>
@@ -34,14 +38,15 @@
 				<a href="index.html"><img src="img/logo.png" alt="Logo"></a>
 			</div>
 			<div class="headerinfo">
-				<h1 class="title">ComentaTuVida</h1>
-				<p class="subtitle">La web de comentarios lider.</p>
+				<a href="index.html"><h1>ComentaTuVida</h1></a>
+				<p>La web de comentarios lider.</p>
 			</div>
 			<div class="headerlinks">
-				<a href="pagina1.html"><i class="material-icons">person</i>Login</a>
-				<a href="pagina2.html"><i class="material-icons">person_add</i>Registro</a>
-				<a href="pagina3.html"><i class="material-icons">cancel</i>LogOut</a>
-				<a href="pagina4.html"><i class="material-icons">add_circle</i>Nuevo</a>
+				<a class="loggedout" href="login.html"><i class="material-icons">person</i>Login</a>
+				<a class="loggedout" href="registro.html"><i class="material-icons">person_add</i>Registro</a>
+				<a class="loggedin" href="#!" onclick="logout();"><i class="material-icons">cancel</i>LogOut</a>
+				<a class="loggedin" href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a>
+				</span>
 			</div>
 		</header>
 		<main>
@@ -86,5 +91,8 @@
 			</div>
 			<p><b>&copy;2017 - ComentaTuVida</b></p>
 		</footer>
+		<script>
+			isLoggedIn();
+		</script>
 	</body>
 </html>

@@ -20,8 +20,9 @@ function ajaxPostRequest(data, action, callback) {
           callback(obj);
         } else callback({RESULTADO: "error", CODIGO: this.status});
       }
- 	};
+ 	  };
   	xhttp.open("POST", action, true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   	xhttp.send(data);
 }
 function isJson(str) {
@@ -34,11 +35,21 @@ function isJson(str) {
     }
     return true;
 }
+function openNav() {
+    document.getElementById("overlay").style.width = "100%";
+}
+
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+    document.getElementById("overlay").style.width = "0%";
+      console.log(sessionStorage.getItem("login"));
+    if (isJson(sessionStorage.getItem("login"))) location.href="index.html";
+}
 function isLoggedIn(){
   if (isJson(sessionStorage.getItem("login")) && JSON.parse(sessionStorage.getItem("login")).RESULTADO == "ok"){
     var items = document.querySelectorAll(".loggedin");
     for (var item of items){
-      item.style.display = "block";
+      item.style.display = "inline-block";
     }
     var items = document.querySelectorAll(".loggedout");
     for (var item of items){
@@ -47,13 +58,16 @@ function isLoggedIn(){
   } else {
     var items = document.querySelectorAll(".loggedout");
     for (var item of items){
-      item.style.display = "block";
+      item.style.display = "inline-block";
     }
     var items = document.querySelectorAll(".loggedin");
     for (var item of items){
       item.style.display = "none";
     }
   }
+  document.getElementById("search-bar").addEventListener("keypress", function (evt){
+    console.log(evt);
+  });
 }
 function logout(){
   sessionStorage.setItem("login", "");

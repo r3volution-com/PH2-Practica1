@@ -218,7 +218,7 @@ footer>div h2, footer>p{
   nav ul li a {
     font-size: 5vw;
   }
-  nav ul li.item{
+  nav ul li ul{
     display: none;
   }
   main{
@@ -266,7 +266,7 @@ footer>div h2, footer>p{
   nav ul li a {
     font-size: 1.2em;
   }
-  nav ul li.info, nav ul li.item {
+  nav ul li.info, nav ul li ul {
     display: none;
   }
   nav ul li.item i.material-icons{
@@ -344,7 +344,7 @@ footer>div h2, footer>p{
   nav ul li a {
     font-size: 1.2em;
   }
-  nav ul li.info, nav ul li.item {
+  nav ul li.info, nav ul li ul {
     display: none;
   }
   nav ul li.item i.material-icons{
