@@ -52,135 +52,42 @@
 				<h2>Buscar</h2>
 				<form>
 					<label for="title">Titulo</label>
-					<input type="text" name="title" id="title" required autofocus placeholder="Titulo"/>
+					<input type="text" name="title" id="title" autofocus placeholder="Titulo"/>
 					<label for="text">Texto</label>
-					<input type="text" name="text" id="text" required placeholder="Texto"/>
+					<input type="text" name="text" id="text" placeholder="Texto"/>
 					<label for="title">Autor</label>
-					<input type="text" name="autor" id="autor" required placeholder="Autor"/>
+					<input type="text" name="autor" id="autor" placeholder="Autor"/>
 					<label for="title">Fecha</label>
-					<input type="text" name="desde" id="datepicker" maxlength="10" size="10" required placeholder="Desde" />
-					<input type="text" name="hasta" id="datepicker2" maxlength="10" size="10" required placeholder="Hasta" />
+					<input type="text" name="desde" id="datepicker" maxlength="10" size="10" placeholder="Desde" />
+					<input type="text" name="hasta" id="datepicker2" maxlength="10" size="10" placeholder="Hasta" />
 					<input type="submit" value="Buscar"/>
 				</form>
 			</section>
-			<script>
-   	 			var picker = new Pikaday({
-				    field: document.getElementById('datepicker'),
-					format: 'DD-MM-YYYY',
-			        onSelect: function() {
-		            	this.getMoment().format('Do-MMMM-YYYY');
-				    }
-			    });
-
-   	 			var picker = new Pikaday({
-			        field: document.getElementById('datepicker2'),
-			    	format: 'DD-MM-YYYY',
-			        onSelect: function() {
-			            this.getMoment().format('Do-MMMM-YYYY');
-			        }
-			    });
-
-
-			</script>
 			<section class="articles">
-				<h2>Resultados de la busqueda</h2>
-				<article>
-					<div class="aheader">
-						<a href="entrada.html"><img src="fotos/foto.jpg" alt="Entrada"/></a>
-					</div>
-					<div class="abody">
-						<a href="entrada.html"><h3>Articulo 1</h3></a>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
-					</div>
-					<div class="afooter">
-						<p>Autor</p>
-						<p>NumCom</p>
-						<p>Fecha</p>
-						<p>NumFotos</p>
-					</div>
-				</article>
-				<article>
-					<div class="aheader">
-						<a href="entrada.html"><img src="fotos/foto.jpg" alt="Entrada"/></a>
-					</div>
-					<div class="abody">
-						<a href="entrada.html"><h3>Articulo 1</h3></a>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
-					</div>
-					<div class="afooter">
-						<p>Autor</p>
-						<p>NumCom</p>
-						<p>Fecha</p>
-						<p>NumFotos</p>
-					</div>
-				</article>
-				<article>
-					<div class="aheader">
-						<a href="entrada.html"><img src="fotos/foto.jpg" alt="Entrada"/></a>
-					</div>
-					<div class="abody">
-						<a href="entrada.html"><h3>Articulo 1</h3></a>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
-					</div>
-					<div class="afooter">
-						<p>Autor</p>
-						<p>NumCom</p>
-						<p>Fecha</p>
-						<p>NumFotos</p>
-					</div>
-				</article>
-				<article>
-					<div class="aheader">
-						<a href="entrada.html"><img src="fotos/foto.jpg" alt="Entrada"/></a>
-					</div>
-					<div class="abody">
-						<a href="entrada.html"><h3>Articulo 1</h3></a>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
-					</div>
-					<div class="afooter">
-						<p>Autor</p>
-						<p>NumCom</p>
-						<p>Fecha</p>
-						<p>NumFotos</p>
-					</div>
-				</article>
-				<article>
-					<div class="aheader">
-						<a href="entrada.html"><img src="fotos/foto.jpg" alt="Entrada"/></a>
-					</div>
-					<div class="abody">
-						<a href="entrada.html"><h3>Articulo 1</h3></a>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
-					</div>
-					<div class="afooter">
-						<p>Autor</p>
-						<p>NumCom</p>
-						<p>Fecha</p>
-						<p>NumFotos</p>
-					</div>
-				</article>
-				<article>
-					<div class="aheader">
-						<a href="entrada.html"><img src="fotos/foto.jpg" alt="Entrada"/></a>
-					</div>
-					<div class="abody">
-						<a href="entrada.html"><h3>Articulo 1</h3></a>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
-					</div>
-					<div class="afooter">
-						<p>Autor</p>
-						<p>NumCom</p>
-						<p>Fecha</p>
-						<p>NumFotos</p>
-					</div>
-				</article>
-				<div>
-					<a href="#">&lt;&lt;</a>
-					<a href="#">&lt;</a>
-					<b>2 de 12</b>
-					<a href="#">&gt;</a>
-					<a href="#">&gt;&gt;</a>
+				<h2>Resultado de busqueda</h2>
+				<div class="a-container">
+					<article>Aun no se ha realizado ninguna busqueda</article>
 				</div>
+				<div class="a-pagination">
+					
+				</div>
+				<template>
+					<article>
+						<div class="aheader">
+							<a href=""><img src="" alt=""/></a>
+						</div>
+						<div class="abody">
+							<a href=""><h3></h3></a>
+							<p class="descripcion"></p>
+						</div>
+						<div class="afooter">
+							<p class="autor"></p>
+							<p class="numcom"></p>
+							<p class="fecha"></p>
+							<p class="numfotos"></p>
+						</div>
+					</article>
+				</template>
 			</section>
 		</main>
 		<footer>
@@ -204,5 +111,90 @@
 			</div>
 			<p><b>&copy;2017 - ComentaTuVida</b></p>
 		</footer>
+		<script>
+		   	 			var picker = new Pikaday({
+				    field: document.getElementById('datepicker'),
+					format: 'DD-MM-YYYY',
+			        onSelect: function() {
+		            	this.getMoment().format('Do-MMMM-YYYY');
+				    }
+			    });
+
+   	 			var picker = new Pikaday({
+			        field: document.getElementById('datepicker2'),
+			    	format: 'DD-MM-YYYY',
+			        onSelect: function() {
+			            this.getMoment().format('Do-MMMM-YYYY');
+			        }
+			    });
+			    function titulo(){ 
+			    	var cosa=document.getElementById("title").value;
+			    	var title = false;
+			    	if(cosa != ""){
+			    		title = true;
+			    	}
+			    	return title;
+			    }
+			    function texto(){ 
+			    	var cosa=document.getElementById("text").value;
+			    	var text = false;
+			    	if(cosa != ""){
+			    		text = true;
+			    	}
+			    	return text;
+			    }
+			    function autor(){ 
+			    	var cosa=document.getElementById("autor").value;
+			    	var author = false;
+			    	if(cosa != ""){
+			    		author = true;
+			    	}
+			    	return author;
+			    }
+			    function desde(){
+			    	var cosa=document.getElementById("datepicker").value;
+			    	var since = false;
+			    	if(cosa != ""){
+			    		since = true;
+			    	}
+			    	return since;
+			    }			    
+			    function hasta(){ 
+			    	var cosa=document.getElementById("datepicker2").value;
+			    	var to = false;
+			    	if(cosa != ""){
+			    		to = true;
+			    	}
+			    	return to;
+			    }
+   	 			function consulta(){
+   	 				var string1 = "";
+   	 				if(titulo()== true){
+   	 					string1 = string1+"n="+document.getElementById("title").value;
+   	 				}
+   	 				if(texto()==true){
+   	 					if(string1 !=""){string1= string1+"&";}
+   	 					string1 = string1+"d="+document.getElementById("text").value;
+   	 				}
+   	 				if(autor()==true){
+   	 					if(string1 !=""){string1= string1+"&";}
+   	 					string1 = string1+"l="+document.getElementById("autor").value;
+   	 				}
+   	 				if(desde()==true){
+   	 					if(string1 !=""){string1= string1+"&";}
+   	 					string1 = string1+"ff="+document.getElementById("datepicker").value;
+   	 				}
+   	 				if(hasta()==true){
+   	 					if(string1 !=""){string1= string1+"&";}
+   	 					string1 = string1+"fi="+document.getElementById("datepicker2").value;
+   	 				}
+   	 				return string1;
+   	 			}
+
+		document.querySelector("form").addEventListener("submit",function(event){
+			event.preventDefault();
+			loadEntries(6, 1, consulta());
+		})
+		</script>
 	</body>
 </html>

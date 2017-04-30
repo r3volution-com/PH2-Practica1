@@ -65,7 +65,8 @@ function loadEntries(nEntradas, nPagina, extra){
       var nPaginas = Math.floor((res.FILAS.length / nEntradas))+1;
       var action = "rest/entrada/?pag="+(nPagina-1)+"&lpag="+nEntradas;
       if (typeof extra != "undefined") action += "&"+extra;
-      ajaxGetRequest(action, function(res){
+      console.log(action);
+      ajaxGetRequest(action, function(res){ 
         if (res.RESULTADO == "ok"){
           let entradas = document.querySelectorAll('.a-container article')
           for (let entrada of entradas){
