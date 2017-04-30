@@ -16,7 +16,7 @@
 			<label for="menu-toogle"></label>
 			<nav>
 				<ul>
-					<li><input type="text" name="buscar" value="" placeholder="Busqueda"/></li>
+					<li><input type="text" name="buscar" value="" placeholder="Busqueda" id="search-bar"/></li>
 					<span class="loggedout">
 						<li class="item"><a href="login.html"><i class="material-icons">person</i>Login</a></li>
 						<li class="item"><a href="registro.html"><i class="material-icons">person_add</i>Registro</a></li>
@@ -122,14 +122,16 @@
 			<p><b>&copy;2017 - ComentaTuVida</b></p>
 		</footer>
 		<script>
-			var nPag = 1;
-			if (location.hash.indexOf("nPag=") > -1){
-				var nP = location.hash.split("=")[1];
-				if (parseInt(nP) > 0) nPag = parseInt(nP);
+			window.onload = function() {
+				var nPag = 1;
+				if (location.hash.indexOf("nPag=") > -1){
+					var nP = location.hash.split("=")[1];
+					if (parseInt(nP) > 0) nPag = parseInt(nP);
+				}
+				isLoggedIn();
+				loadEntries(6, nPag);
+				loadComments(10);
 			}
-			isLoggedIn();
-			loadEntries(6, nPag);
-			loadComments(10);
 		</script>
 	</body>
 </html>

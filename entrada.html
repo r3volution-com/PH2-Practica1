@@ -9,49 +9,6 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" type="text/css" href="css/entrada.css">
 		<script type="text/javascript">
-
-			var algo = 1;
-			var algo = ["una", "dos", "tres"];
-
-			var fun = function (param1, param2) {
-
-			};
-
-			fun();
-
-			var obj = {
-				nombre: "mario",
-				edad: 24,
-				direccion: "calle",
-				array: algo,
-				myfun: function (){
-
-				}
-
-			};
-			obj.fun()
-			for (i=0; i<algo.length; i++) algo[i];
-		
-
-			function suma(callback){
-				callback();
-			}
-
-			suma(function(){
-				alert("1");
-			})
-
-			alert("texto");
-			document.getElementById("label1").innerHTML = "algo"
-			document.getElementById("menu-toogle")
-
-			console.log(obj);
-
-			addEventListener("label1", "click", function(){
-				alert("bla");
-			});
-			
-			document.querySelector(".label1")
 		</script>
 	</head>
 	<body>
@@ -60,7 +17,7 @@
 			<label for="menu-toogle" id="label1"></label>
 			<nav>
 				<ul>
-					<li><input type="text" name="buscar" value="" placeholder="Busqueda"/></li>
+					<li><input type="text" name="buscar" value="" placeholder="Busqueda" id="search-bar"/></li>
 					<li class="item"><a href="login.html"><i class="material-icons">person</i>Login</a></li>
 					<li class="item"><a href="registro.html"><i class="material-icons">person_add</i>Registro</a></li>
 					<li class="item"><a href="#"><i class="material-icons">cancel</i>LogOut</a></li>
