@@ -106,6 +106,9 @@
 					}
 				});
 			});
+			if (isJson(sessionStorage.getItem("login")) && JSON.parse(sessionStorage.getItem("login")).RESULTADO == "ok"){
+				location.href="index.html";
+			}
 		</script>
 	</body>
 </html>

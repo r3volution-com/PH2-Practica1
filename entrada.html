@@ -52,97 +52,19 @@
 		</header>
 		<main>
 			<section class="articles">
-				<article>
-					<h2>Articulo 1</h2>
-					<div class="aheader">
-						<a href="entrada.html"><img src="fotos/foto.jpg" alt="Entrada"/></a>
-					</div>
-					<div class="abody">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aperiam aspernatur, iusto libero sapiente error, animi laboriosam eius accusamus ut molestias id neque placeat, blanditiis quo velit consequatur inventore itaque commodi. A aliquid, facilis quasi ex animi hic error voluptatum.</p>
-					</div>
-					<div class="afooter">
-						<p>Autor</p>
-						<p>NumCom</p>
-						<p>Fecha</p>
-						<p>NumFotos</p>
-					</div>
+				<article class="article">
+
 				</article>
 				<article class="imagenes">
 					<h2>Imagenes</h2>
-					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
-					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
-					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
-					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
-					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
-					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
-					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
-					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
-					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
-					<div><img src="css/foto.jpg" alt="Entrada"/><p>Texto</p></div>
+					<span class="images">
+
+					</span>
 				</article>
 				<article>
 					<a id="comentarios"><h2>Comentarios</h2></a>
 					<div class="comments">
-						<div>
-							<b>Titulo del comentario</b>
-							<p>Comentario</p>
-							<i>Autor</i> - <i>Fecha</i>
-							<a href="">Responder</a>
-						</div>
-						<div>
-							<b>Titulo del comentario</b>
-							<p>Comentario</p>
-							<i>Autor</i> - <i>Fecha</i>
-							<a href="">Responder</a>
-						</div>
-						<div>
-							<b>Titulo del comentario</b>
-							<p>Comentario</p>
-							<i>Autor</i> - <i>Fecha</i>
-							<a href="">Responder</a>
-						</div>
-						<div>
-							<b>Titulo del comentario</b>
-							<p>Comentario</p>
-							<i>Autor</i> - <i>Fecha</i>
-							<a href="">Responder</a>
-						</div>
-						<div>
-							<b>Titulo del comentario</b>
-							<p>Comentario</p>
-							<i>Autor</i> - <i>Fecha</i>
-							<a href="">Responder</a>
-						</div>
-						<div>
-							<b>Titulo del comentario</b>
-							<p>Comentario</p>
-							<i>Autor</i> - <i>Fecha</i>
-							<a href="">Responder</a>
-						</div>
-						<div>
-							<b>Titulo del comentario</b>
-							<p>Comentario</p>
-							<i>Autor</i> - <i>Fecha</i>
-							<a href="">Responder</a>
-						</div>
-						<div>
-							<b>Titulo del comentario</b>
-							<p>Comentario</p>
-							<i>Autor</i> - <i>Fecha</i>
-							<a href="">Responder</a>
-						</div>
-						<div>
-							<b>Titulo del comentario</b>
-							<p>Comentario</p>
-							<i>Autor</i> - <i>Fecha</i>
-							<a href="">Responder</a>
-						</div>
-						<div>
-							<b>Titulo del comentario</b>
-							<p>Comentario</p>
-							<i>Autor</i> - <i>Fecha</i>
-							<a href="">Responder</a>
-						</div>
+						
 					</div>
 					<div class="center">
 						<h3>Añadir comentario</h3>
@@ -153,6 +75,36 @@
 					</div>
 				</article>
 			</section>
+			<template id="article">
+				<span>
+					<h2></h2>
+					<div class="aheader">
+						<img src="" alt=""/>
+					</div>
+					<div class="abody">
+						<p></p>
+					</div>
+					<div class="afooter">
+						<p class="autor"></p>
+						<p class="numcom"></p>
+						<p class="fecha"></p>
+						<p class="numfotos"></p>
+					</div>
+				</span>
+			</template>
+			<template id="images">
+				<div>
+					<img src="" alt=""/>
+					<p></p>
+				</div>
+			</template>
+			<template id="comments">
+				<div>
+					<b></b>
+					<p></p>
+					<i class="c-author"></i> - <i class="c-date"></i>
+				</div>
+			</template>
 		</main>
 		<footer>
 			<div>
@@ -177,6 +129,9 @@
 		</footer>
 		<script>
 			isLoggedIn();
+			var q = QueryString();
+			if (typeof q.id == "undefined" || isNaN(q.id)) location.href="index.html";
+			loadEntry(parseInt(q.id));
 		</script>
 	</body>
 </html>

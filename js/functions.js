@@ -36,13 +36,11 @@ function isJson(str) {
   return true;
 }
 function openNav() {
-  console.log("OPEN");
   document.getElementById("overlay").style.width = "100%";
 }
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
 function closeNav() {
-  console.log("CLOSE");
   document.getElementById("overlay").style.width = "0%";
   if (isJson(sessionStorage.getItem("login"))) location.href="index.html";
   else location.href="login.html";
@@ -68,7 +66,7 @@ function isLoggedIn(){
     }
   }
   document.getElementById("search-bar").addEventListener("keypress", function (evt){
-    console.log(evt);
+    if (evt.keyCode == 13) location.href="buscar.html?nombre="+document.getElementById("search-bar").value;
   });
 }
 function logout(){
@@ -81,7 +79,6 @@ function loadEntries(nEntradas, nPagina, extra){
       var nPaginas = Math.floor((res.FILAS.length / nEntradas))+1;
       var action = "rest/entrada/?pag="+(nPagina-1)+"&lpag="+nEntradas;
       if (typeof extra != "undefined") action += "&"+extra;
-      console.log(action);
       ajaxGetRequest(action, function(res){ 
         if (res.RESULTADO == "ok"){
           let entradas = document.querySelectorAll('.a-container article')
@@ -92,10 +89,10 @@ function loadEntries(nEntradas, nPagina, extra){
           for (let fila of res.FILAS){
             let elem = plantilla.content.cloneNode(true);
             
-            elem.querySelector('.aheader a').href = 'entradas.html?id='+fila.id;
+            elem.querySelector('.aheader a').href = 'entrada.html?id='+fila.id;
             elem.querySelector('.aheader img').src = 'fotos/'+fila.fichero;
             elem.querySelector('.aheader img').alt = 'fotos/'+fila.nombre;
-            elem.querySelector('.abody a').href = 'entradas.html?id='+fila.id;
+            elem.querySelector('.abody a').href = 'entrada.html?id='+fila.id;
             elem.querySelector('.abody h3').innerHTML = fila.nombre;
             elem.querySelector('.abody .descripcion').innerHTML = fila.descripcion;
             elem.querySelector('.afooter .autor').innerHTML = fila.login;
@@ -121,6 +118,79 @@ function loadEntries(nEntradas, nPagina, extra){
     }
   });
 }
+function QueryString() {
+  // This function is anonymous, is executed immediately and 
+  // the return value is assigned to QueryString!
+  var query_string = {};
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+        // If first entry with this name
+    if (typeof query_string[pair[0]] === "undefined") {
+      query_string[pair[0]] = decodeURIComponent(pair[1]);
+        // If second entry with this name
+    } else if (typeof query_string[pair[0]] === "string") {
+      var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+      query_string[pair[0]] = arr;
+        // If third or later entry with this name
+    } else {
+      query_string[pair[0]].push(decodeURIComponent(pair[1]));
+    }
+  } 
+  return query_string;
+}
+function loadEntry(idEntry){
+  ajaxGetRequest("rest/entrada/"+idEntry, function(res){
+    if (res.RESULTADO == "ok"){
+      let plantilla = document.querySelector('template#article');
+      for (let fila of res.FILAS){
+        let elem = plantilla.content.cloneNode(true);
+        
+        elem.querySelector('h2').innerHTML = fila.nombre;
+        elem.querySelector('.aheader img').src = 'fotos/'+fila.fichero;
+        elem.querySelector('.aheader img').alt = 'fotos/'+fila.nombre;
+        elem.querySelector('.abody p').innerHTML = fila.descripcion;
+        elem.querySelector('.afooter .autor').innerHTML = fila.login;
+        elem.querySelector('.afooter .numcom').innerHTML = fila.ncomentarios+"icono";
+        elem.querySelector('.afooter .numfotos').innerHTML = fila.nfotos+"icono";
+        elem.querySelector('.afooter .fecha').innerHTML = fila.fecha;
+
+        document.querySelector('.articles .article').appendChild(elem);
+      }
+    }
+  });
+  ajaxGetRequest("rest/comentario/?id_entrada="+idEntry, function(res){
+    if (res.RESULTADO == "ok"){
+      let plantilla = document.querySelector('template#comments');
+      for (let fila of res.FILAS){
+        let elem = plantilla.content.cloneNode(true);
+
+        elem.querySelector('b').innerHTML = fila.titulo;
+        elem.querySelector('p').innerHTML = fila.texto;
+        elem.querySelector('.c-author').innerHTML = fila.login;
+        elem.querySelector('.c-date').innerHTML = fila.fecha;
+
+        document.querySelector('.comments').appendChild(elem);
+      }
+    }
+  });
+  ajaxGetRequest("rest/foto/?id_entrada="+idEntry, function(res){
+    console.log(res);
+    if (res.RESULTADO == "ok"){
+      let plantilla = document.querySelector('template#images');
+      for (let fila of res.FILAS){
+        let elem = plantilla.content.cloneNode(true);
+
+        elem.querySelector('img').src = "fotos/"+fila.fichero;
+        elem.querySelector('img').alt = fila.texto;
+        elem.querySelector('p').innerHTML = fila.texto;
+
+        document.querySelector('.images').appendChild(elem);
+      }
+    }
+  });
+}
 function loadComments(nComments){
   ajaxGetRequest("rest/comentario/?u="+nComments, function(res){
     if (res.RESULTADO == "ok"){
@@ -132,7 +202,7 @@ function loadComments(nComments){
       for (let fila of res.FILAS){
         let elem = plantilla.content.cloneNode(true);
 
-        elem.querySelector('a').href = 'entradas.html?id='+fila.id;
+        elem.querySelector('a').href = 'entrada.html?id='+fila.id;
         elem.querySelector('h3').innerHTML = fila.nombre_entrada;
         elem.querySelector('b').innerHTML = fila.titulo;
         elem.querySelector('p').innerHTML = fila.texto;

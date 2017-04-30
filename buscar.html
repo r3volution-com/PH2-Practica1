@@ -201,6 +201,8 @@
 				event.preventDefault();
 				loadEntries(6, 1, consulta());
 			});
+			var q = QueryString();
+			if (typeof q.nombre != "undefined") document.querySelector("#title").value=q.nombre;
 		</script>
 	</body>
 </html>
