@@ -76,6 +76,13 @@ article img {
   width: 100%;
   max-height: 40vw;
 }
+.datepicker{
+	width: 45%;
+}
+.datepicker2{
+	width: 45%;
+	display: inline;
+}
 article .abody{
   padding: 5px;
 }
