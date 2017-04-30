@@ -97,6 +97,9 @@ section>div a{
   padding: 3px;
   background-color: lightgrey;
 }
+#articles{
+	height: 30px;
+}
 @media screen and (min-width: 480px) and (max-width: 1000px){
 	main>section{
 		margin-top: 10vh;

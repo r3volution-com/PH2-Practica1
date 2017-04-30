@@ -136,7 +136,7 @@
 		      			}
 		      			function sendForm(event, form){
 		      				event.preventDefault();
-		      				ajaxPostRequest(new FormData (form), 'rest/entrada/', function(response){
+		      				ajaxPostRequest(new FormData (form), 'rest/entrada/', function(response)){
 		      					if(response.RESULTADO=='ok'){
 		      						openNav();
 		      					}
