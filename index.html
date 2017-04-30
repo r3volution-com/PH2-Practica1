@@ -149,14 +149,13 @@
 		                document.querySelector('.a-container').appendChild(elem);
 					}
 					if (nPagina > 1){
-						document.querySelector('.a-pagination').innerHTML = '<a href="#">&lt;&lt;</a><a href="#">&lt;</a><b>'+nPagina+' de 12</b><a href="#">&gt;</a><a href="#">&gt;&gt;</a>';
+						document.querySelector('.a-pagination').innerHTML = '<a href="#!">&lt;&lt;</a><a href="#!">&lt;</a><b>'+nPagina+'</b><a href="#">&gt;</a><a href="#">&gt;&gt;</a>';
 					} else {
-						document.querySelector('.a-pagination').innerHTML = '<b>'+nPagina+' de 12</b><a href="#">&gt;</a><a href="#">&gt;&gt;</a>';
+						document.querySelector('.a-pagination').innerHTML = '<b>'+nPagina+'</b><a href="#">&gt;</a><a href="#">&gt;&gt;</a>';
 					}
 				}
 			});
 			ajaxGetRequest("rest/comentario/?u="+numEntradas, function(res){
-				console.log(res);
 				if (res.RESULTADO == "ok"){
 					let entradas = document.querySelectorAll('.comments div')
 					for (let entrada of entradas){

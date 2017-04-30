@@ -24,8 +24,17 @@ function ajaxPostRequest(data, action, callback) {
   	xhttp.open("POST", action, true);
   	xhttp.send(data);
 }
+function isJson(str) {
+    if (str == "") return false;
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
 function isLoggedIn(){
-  if (sessionStorage.getItem("login")){
+  if (isJson(sessionStorage.getItem("login")) && JSON.parse(sessionStorage.getItem("login")).RESULTADO == "ok"){
     var items = document.querySelectorAll(".loggedin");
     for (var item of items){
       item.style.display = "block";
@@ -37,15 +46,15 @@ function isLoggedIn(){
   } else {
     var items = document.querySelectorAll(".loggedout");
     for (var item of items){
-      item.style.display = "none";
+      item.style.display = "block";
     }
     var items = document.querySelectorAll(".loggedin");
     for (var item of items){
-      item.style.display = "block";
+      item.style.display = "none";
     }
   }
 }
 function logout(){
-  sessionStorage.setItem("login", false);
+  sessionStorage.setItem("login", "");
   location.href=location.href;
 }
