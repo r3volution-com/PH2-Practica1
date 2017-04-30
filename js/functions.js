@@ -11,6 +11,18 @@ function ajaxGetRequest(action, callback) {
   	xhttp.open("GET", action, true);
   	xhttp.send();
 }
+function ajaxHTMLRequest(action, callback) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4) {
+        if (this.status == 200){
+          callback(this.responseText);
+        } else callback("Error 404");
+      }
+  };
+    xhttp.open("GET", action, true);
+    xhttp.send();
+}
 function ajaxPostRequest(data, action, callback, login) {
   	var xhttp = new XMLHttpRequest();
   	xhttp.onreadystatechange = function() {
@@ -173,6 +185,7 @@ function loadEntry(idEntry){
         elem.querySelector('p').innerHTML = fila.texto;
         elem.querySelector('.c-author').innerHTML = fila.login;
         elem.querySelector('.c-date').innerHTML = fila.fecha;
+        elem.querySelector('a').onclick = function () { reply(fila.titulo) };
 
         document.querySelector('.comments').appendChild(elem);
       }
@@ -193,6 +206,10 @@ function loadEntry(idEntry){
       }
     }
   });
+}
+function reply(comment){
+  document.querySelector("#titulo").value="Re:"+comment;
+  document.querySelector("#comentario").focus();
 }
 function loadComments(nComments){
   ajaxGetRequest("rest/comentario/?u="+nComments, function(res){

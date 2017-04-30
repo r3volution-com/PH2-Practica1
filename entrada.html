@@ -98,6 +98,7 @@
 					<b></b>
 					<p></p>
 					<i class="c-author"></i> - <i class="c-date"></i>
+					<a href="#!">Responder</a>
 				</div>
 			</template>
 		</main>
@@ -126,20 +127,13 @@
 			isLoggedIn();
 			var q = QueryString();
 			if (typeof q.id == "undefined" || isNaN(q.id)) location.href="index.html";
-				loadEntry(parseInt(q.id));
+			loadEntry(parseInt(q.id));
 			if (!isJson(sessionStorage.getItem("login")) || JSON.parse(sessionStorage.getItem("login")).RESULTADO != "ok"){
-				let xhr = new XMLHttpRequest();
-            	let url = 'prueba.html';
-
-           		xhr.open('GET', url, true);
-            	xhr.onload = function(){
-                formulario += xhr.responseText;
-                document.articleCom.querySelector(".center").innerHTML= formulario;
-            }
-            xhr.send();
-      		}
-      		else{
-      			document.articleCom.querySelector(".center").innerHTML= "Loggeate para comentar!";
+      			document.querySelector("#articleCom .center").innerHTML= "Loggeate para comentar!";
+      		} else {
+				ajaxHTMLRequest("prueba.html", function(res){
+	                document.querySelector("#articleCom .center").innerHTML= res;
+				});
       		}
 		</script>
 	</body>
