@@ -62,18 +62,12 @@
 				<input type="text" name="title" id="title" maxlength="200" required autofocus placeholder="Titulo"/>
 				<label for="text">Descripción</label>
 				<input type="text" name="text" id="text" required placeholder="Texto"/>
-						<!--
-						<label for="text">Fotos</label>
-						<input type="file" accept="image/*"/>
-						<input type="submit" value="Publicar"/>
-					</form>
-				-->
+				<p id="aviso">
+					La foto no puede pesar mas de 500Kb
+				</p>
 				<p id="Fotos">
 				</p>
-				<button onclick="anadirFoto();">Añadir Foto</button>
-				<p>
-				La foto no puede pesar mas de 500Kb
-				</p>
+				<p id="boton" onclick="anadirFoto();">Añadir Foto</p>
 				<input type="submit" value="Enviar entrada"/>
 					<div>
 						<template id="template-foto">
@@ -103,32 +97,36 @@
 		   					var files = evt.target.files; // FileList object
 		    					// Loop through the FileList and render image files as thumbnails.
 		    				for (var i = 0, f; f = files[i]; i++) {
-		      					if(files[i].size/1024<500){
-		      						if (!f.type.match('image.*')) {
-		      							continue;
-		      						}
-		      						var reader = new FileReader();
-		      							// Closure to capture the file information.
-		      							reader.onload = (function(theFile) {
-		      								return function(e) {
-		          							// Render thumbnail.
-		          							evt.target.parentNode.querySelector('.list').innerHTML= ['<img class="thumb" src="', e.target.result,
-		          							'" title="', escape(theFile.name), '"/>'].join('');
-		          						};
-		          					})(f);
-		      						// Read in the image file as a data URL.
-		      						reader.readAsDataURL(f);
+	      						if (!f.type.match('image.*')) {
+	      							continue;
+	      						}
+	      						console.log(files[i].size/1024);
+	      						if(files[i].size/1024<500){
+	      							console.log("hfdanfjenw j");
+	      							//evt.target.parentNode.querySelector('.file').value= "";
+	      							//alert("El archivo es demasiado grande, debe pesar menos de 500KB");
+	      							//x = evt.target.parentNode.querySelector('img');
+	      							//x.parentNode.removeChild(x);
+	      							revelar(evt.target);
+	      							document.getElementById("aviso").innerHTML="La foto no puede pesar mas de 500Kb";
 		      					}
 		      					else{
-		      						//document.querySelector('')
 		      						console.log(evt.target.parentNode);
+		      						document.getElementById("aviso").innerHTML="AVISO La imagen pesa mas de 500Kb";
+		      						ocultar(evt.target);
+		      					}	
+	      						var reader = new FileReader();
+	      							// Closure to capture the file information.
+	      							reader.onload = (function(theFile) {
+	      								return function(e) {
+	          							// Render thumbnail.
+	          							evt.target.parentNode.querySelector('.list').innerHTML= ['<img class="thumb" src="', e.target.result,
+	          							'" title="', escape(theFile.name), '"/>'].join('');
 
-		      						evt.target.parentNode.querySelector('.file').value= "";
-		      						alert("El archivo es demasiado grande, debe pesar menos de 500KB");
-		      						x = evt.target.parentNode.querySelector('img');
-		      						console.log(x);
-		      						x.parentNode.removeChild(x);
-		      					}
+	          						};
+	          					})(f);
+	      						// Read in the image file as a data URL.
+	      						reader.readAsDataURL(f);
 		      				}
 		      			}
 		      			function openNav(){
@@ -136,7 +134,7 @@
 		      			}
 		      			function sendForm(event, form){
 		      				event.preventDefault();
-		      				ajaxPostRequest(new FormData (form), 'rest/entrada/', function(response)){
+		      				ajaxPostRequest(new FormData (form), 'rest/entrada/', function(response){
 		      					if(response.RESULTADO=='ok'){
 		      						openNav();
 		      					}
@@ -144,6 +142,13 @@
 		      						console.log(response);	
 		      					}
 		      				});
+		      			}
+		      			function ocultar(ejm){
+		      				console.log(ejm.parentNode.querySelector('.error'));
+		      				document.querySelector('#aviso').style.borderColor="red";
+		      			}
+		      			function revelar(ejm){
+		      				document.querySelector('#aviso').style.borderColor="black";
 		      			}
 	  				</script>
   				</form>
