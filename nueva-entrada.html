@@ -24,7 +24,7 @@
 						<li class="item loggedin"><a href="#!" onclick="logout();"><i class="material-icons">cancel</i>LogOut</a></li>
 						<li class="item loggedin"><a href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a></li>
 						<li class="info">
-							<a href="index.html"><h1>ComentaTuVida</h1></a>
+							<a href="index.html"><h2>ComentaTuVida</h2></a>
 							<p>La web de comentarios lider.</p>
 						</li>
 					</ul>
@@ -47,7 +47,6 @@
 			<a class="loggedout" href="registro.html"><i class="material-icons">person_add</i>Registro</a>
 			<a class="loggedin" href="#!" onclick="logout();"><i class="material-icons">cancel</i>LogOut</a>
 			<a class="loggedin" href="nueva-entrada.html"><i class="material-icons">add_circle</i>Nuevo</a>
-			</span>
 		</div>
 	</header>
 	<main>
@@ -58,10 +57,10 @@
 			<form onsubmit="sendForm(event, this);">
 				<h2>Nueva entrada</h2>
 				<!--<form>-->
-				<label for="title">Titulo</label>
-				<input type="text" name="title" id="title" maxlength="200" required autofocus placeholder="Titulo"/>
-				<label for="text">Descripción</label>
-				<input type="text" name="text" id="text" required placeholder="Texto"/>
+				<label for="nombre">Titulo</label>
+				<input type="text" name="nombre" id="nombre" maxlength="200" required autofocus placeholder="Titulo"/>
+				<label for="descripcion">Descripción</label>
+				<textarea name="descripcion" id="descripcion" required placeholder="Texto"></textarea>
 				<p id="aviso">
 					La foto no puede pesar mas de 500Kb
 				</p>
@@ -134,14 +133,31 @@
 		      			}
 		      			function sendForm(event, form){
 		      				event.preventDefault();
-		      				ajaxPostRequest(new FormData (form), 'rest/entrada/', function(response){
+		      				console.log(sessionStorage.getItem("login"));
+		      				var obj = JSON.parse(sessionStorage.getItem("login"));
+		      				var clave = obj.clave;
+		      				console.log(clave);
+		      				var nombre = document.getElementById("nombre").value;
+		      				var descripcion = document.getElementById("descripcion").value;
+		      				var login = obj.login;
+		      				ajaxPostRequest("nombre="+nombre+"&descripcion="+descripcion+"&login="+login, 'rest/entrada/', function(response){
 		      					if(response.RESULTADO=='ok'){
-		      						openNav();
+		      						var fotos = document.querySelectorAll(".tempFoto");
+		      						for(let foto of fotos){
+		      							let img = foto.querySelector("input.file");
+		      							let text = foto.querySelector("textarea");
+		      							ajaxPostRequest("login="+login+"&id_entrada="+response.id+"&texto="+text+"&foto="+img.files[0],"rest/foto/",function(response){
+		      								console.log(response);
+		      							},clave);
+
+		      						}
+		      						//openNav();
 		      					}
 		      					else{
 		      						console.log(response);	
 		      					}
-		      				});
+		      				},clave);
+
 		      			}
 		      			function ocultar(ejm){
 		      				console.log(ejm.parentNode.querySelector('.error'));
@@ -150,6 +166,7 @@
 		      			function revelar(ejm){
 		      				document.querySelector('#aviso').style.borderColor="black";
 		      			}
+
 	  				</script>
   				</form>
   			</section>

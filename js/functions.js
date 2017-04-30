@@ -11,7 +11,7 @@ function ajaxGetRequest(action, callback) {
   	xhttp.open("GET", action, true);
   	xhttp.send();
 }
-function ajaxPostRequest(data, action, callback) {
+function ajaxPostRequest(data, action, callback, login) {
   	var xhttp = new XMLHttpRequest();
   	xhttp.onreadystatechange = function() {
       if (this.readyState == 4) {
@@ -23,6 +23,9 @@ function ajaxPostRequest(data, action, callback) {
  	  };
   	xhttp.open("POST", action, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    if(typeof login != "undefined"){
+      xhttp.setRequestHeader("Authorization", login);
+    }
   	xhttp.send(data);
 }
 function isJson(str) {
